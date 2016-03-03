@@ -2,18 +2,42 @@
 <html>
 <head>
   <title><%= titre %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap.min', 'style', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar">
-  <%= link_to("Accueil", "/")%>
-  <%= link_to("Biographie", "/biographie") %>
-  <%= link_to("Musiques", "/musiques") %>
-</div>
+  <header class="row header">
+    <div class="col-md-1 header-logo">
+      <%= link_to(image_tag("logo"))%>
+    </div>
 
+    <div class="col-md-2 col-md-offset-2 header-link">
+      <%= link_to("Biographie", "/biographie") %>
+    </div>
+    <div class="col-md-2 header-link">
+      <%= link_to("Musiques", "/musiques") %>
+    </div>
+    <div class="col-md-2 header-link">
+      <%= link_to("Contact", "#") %>
+    </div>
+
+    <div class="col-md-2 col-md-offset-1 header-share">
+      <%= image_tag("facebook") %>
+      <%= image_tag("youtube") %>
+    </div>
+  </header>
+  <hr class="header-end">
 <%= yield %>
 
+<!--footer-->
+  <hr class="footer-start">
+  <footer class="row footer">
+    <div class="col-md-2 ">
+      <p class="footer-address">06.72.44.40.45<br /> turpin.geoffrey@live.com</p>
+    </div>
+    <div class="col-md-2 col-md-offset-7 footer-link"><p>Mentions légales</p></div>
+    <div class="col-md-1 footer-link">Plan du site</div>
+  </footer>
 </body>
 </html>
