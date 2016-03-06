@@ -10,10 +10,6 @@
     src: url(../fonts/Simplifica.ttf);
 }
 
-a:visited{
-    text-decoration: none;
-}
-
 .guf-title{
     font-family: Harrison, sans-serif;
     color: #004703;
@@ -22,6 +18,10 @@ a:visited{
     font-variant: small-caps;
 }
 
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
 
 /* Accueil */
 
@@ -64,8 +64,6 @@ a:visited{
 .header{
     padding: 0 10px;
     margin-top: 40px;
-    margin-left: 0;
-    margin-right: 0;
 }
 
 .header-logo img{
@@ -149,6 +147,7 @@ a:visited{
 
 /* Musiques */
 
+
 /* Submenus */
 
 .submenu{
@@ -157,6 +156,22 @@ a:visited{
     height: 85px;
     padding-top: 20px;
     margin-bottom: 10px;
+}
+
+.submenu-shown{
+    background-color: #fff;
+
+    text-align: center;
+    border: solid 1px;
+    height: 85px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+
+.submenu-shown p{
+    color: #000;
+    font-family: Simplifica, sans-serif;
+    font-size: 30px;
 }
 
 .submenu a{
@@ -168,6 +183,30 @@ a:visited{
 .submenu a:hover{
     color: #fff;
     text-decoration: none;
+}
+
+#wrapper {
+    width:100%;
+    overflow-x:hidden;
+    overflow-y: hidden;
+}
+
+
+#mask {
+    width:500%;
+    height:100%;
+}
+
+.item {
+    width:20%;
+    height:100%;
+    float:left;
+}
+
+
+.content {
+    top:20%;
+    position:relative;
 }
 
 
@@ -216,7 +255,7 @@ a:visited{
 .footer{
     font-family: Simplifica, sans-serif;
     font-size: 25px;
-    margin: 0;
+    margin: 0px;
     font-variant: small-caps;
     padding: 0 45px;
 }
@@ -237,4 +276,3 @@ a:visited{
     color: #000;
     text-decoration: none;
 }
-
