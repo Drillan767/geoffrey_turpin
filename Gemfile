@@ -36,3 +36,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Gemmes installées après coup
+#Contacts
+gem 'simple_form'
+gem 'mail'
+
+#Admin
+gem 'activeadmin', github: 'activeadmin'
+gem 'formtastic', '~> 3.1', '>= 3.1.3'
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'devise'
