@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag    'bootstrap.min', 'style', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<title><%= titre %></title>
 
 <div class="row landingpage">
   <div class="col-md-2 col-md-offset-8">
@@ -20,6 +21,10 @@
   <div class="col-md-2 ">
     <p class="footer-address">06.72.44.40.45<br /> turpin.geoffrey@live.com</p>
   </div>
-  <div class="col-md-2 col-md-offset-7 footer-link"><p>Mentions légales</p></div>
-  <div class="col-md-1 footer-link">Plan du site</div>
+  <div class="col-md-2 col-md-offset-7 footer-link">
+    <%= link_to("mentions légales", "/mentions_legales")%>
+  </div>
+  <div class="col-md-1 footer-link">
+    <%= link_to("Plan du site", "/plan")%>
+  </div>
 </footer>
