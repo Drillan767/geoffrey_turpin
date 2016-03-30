@@ -98,7 +98,7 @@
 }
 
 
-.header-end{
+.frontline{
     margin: 20px 30px;
     border: 0;
     border-top: 1px solid #000;
@@ -109,7 +109,7 @@
     border-color: #000;
 }
 
-.col-md-3 > .active{
+.col-md-3 .active{
     margin-top: 52px
 }
 
@@ -262,13 +262,31 @@
     width: 100%;
 }
 
-/* Footer */
+/*Contact*/
 
-.footer-start{
-    border-top: 1px solid #000;
-    margin-left: 30px;
-    margin-right: 30px;
+.form-control{
+    border: solid #000;
+    border-radius: 0;
+    font-family: "Simplifica", Sans-Serif;
+    font-variant: small-caps;
+    font-size: 24px;
 }
+
+.form-control:focus{
+    box-shadow: none;
+    border: solid #000;
+}
+
+.submit{
+    color: #fff;
+    font-variant: small-caps;
+    padding: 12px 35px;
+    background-color: #000;
+    border: 1px solid transparent;
+    float: right;
+}
+
+/*Footer*/
 
 .footer{
     font-family: Simplifica, sans-serif;
