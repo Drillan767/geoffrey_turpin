@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    //Script pour "biographie"
 	$('a.submenu').click(function () {
 
 		$('a.submenu').removeClass('selected');
@@ -15,6 +15,22 @@ $(document).ready(function() {
 	$(window).resize(function () {
 		resizePanel();
 	});
+
+    //Script pour le header
+    var currentURL = document.location.href;
+    $('div.header-link.active').removeClass('active');
+    activeLinks = $('div.header-link a').filter(function () {
+        return this.href === currentURL;
+    }).closest('div.header-link').addClass('active');
+
+    $(".header-link").not(".active").mouseenter(function(){
+        $(this).addClass("hover");
+        $(this).parent().css("margin-top", "-3px")
+    }).mouseleave(function(){
+        $(this).removeClass("hover");
+        $(this).parent().css("margin-top", "")
+    });
+
 	
 });
 
@@ -32,4 +48,5 @@ function resizePanel() {
 	$('#wrapper').scrollTo($('a.selected').attr('href'), 0);
 		
 }
+
 
