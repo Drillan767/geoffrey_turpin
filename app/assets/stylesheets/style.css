@@ -138,7 +138,7 @@
 }
 
 .biography-chrono{
-    height: 200px;
+    height: 400px;
     margin-top: 80px;
 }
 
@@ -147,7 +147,10 @@
 }
 
 .biography-desc{
-    margin-top: 60px;
+    margin-top: 220px;
+    border-style: hidden hidden hidden solid;
+    border-color: #004703;
+    border-width: 1px;
 }
 
 .biography-desc h3{
@@ -161,6 +164,36 @@
     color: #636363;
 }
 
+.hr{
+    border-top: 1px solid #004703;
+}
+
+.biography-year{
+    font-family: Simplifica, Sans-Serif;
+    font-size: 23px;
+    margin-bottom: -26px;
+    text-align: center;
+}
+
+.biography-raey{
+    margin-top: -26px;
+    font-family: Simplifica, Sans-Serif;
+    font-size: 23px;
+}
+
+.biography-year p{
+    cursor: pointer;
+}
+
+
+
+.selected{
+    background: url('../selector.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 20px;
+    margin-top: -40px;
+    margin-bottom: 10px;
+}
 
 
 /* Musiques */
