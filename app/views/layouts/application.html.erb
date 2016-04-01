@@ -42,14 +42,14 @@
       <%= image_tag("youtube") %>
     </div>
   </header>
-  <hr class="frontline">
+  <hr class="hr-top">
   <% if flash[:success] %>
     <div class="alert alert-success"><%= flash[:success] %></div>
   <% end %>
 <%= yield %>
 
 <!--footer-->
-  <hr class="frontline">
+  <hr class="hr-bottom">
   <footer class="row footer">
     <div class="col-md-2 ">
       <p class="footer-address">06.72.44.40.45<br /> turpin.geoffrey@live.com</p>
