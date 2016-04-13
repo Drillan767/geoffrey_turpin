@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get '/contact', to: 'contacts#new' , as: :new_contact
   post '/contact', to: 'contacts#create', as: :contacts
 
+  match '/articles', to: 'posts#index', :via => :get
+  match '/article/:id', to: 'posts#show', :via => [:get, :post]
+
+  resources :posts
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

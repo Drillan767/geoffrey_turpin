@@ -1,0 +1,5 @@
+<h1><%=@post.titre %></h1>
+<p>Créé le <%= @post.created_at.strftime('%d/%m/%Y')%></p>
+
+<%=image_tag(@post.image.url(:original)) %>
+<p><%=@post.contenu%></p>
