@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
     $(".hr").hide().animate({width: 'show'}, 1000);
-    $("#b2003").trigger("click");
 
     //Script pour "Musique"
     $('.submenu').click(function () {

@@ -1,9 +1,28 @@
-<% @posts.each do |p| %>
-<h1><%=link_to(p.titre, p) %></h1>
-  <%= image_tag(p.image.url(:thumb))%>
-<p>Le <%=p.created_at.strftime('%d/%m/%Y') %></p>
-<p><%= p.contenu%></p>
-<%=link_to('Lire la suite', p) %>
+<div class="row news">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="guf-title">Articles</h1>
+    <% if !@posts.empty? %>
+        <% @posts.each do |p| %>
+            <h3><%=link_to(p.titre, p) %></h3>
+            <div class="col-md-2 news-thumb">
+              <%= image_tag(p.image.url(:thumb))%>
+            </div>
+            <div class="col-md-10 news-sight">
+              <h5>Le <%=p.created_at.strftime('%d/%m/%Y') %></h5>
+              <p><%= truncate p.contenu, :length => 350, :separator => ' '%></p>
+              <%=link_to('Lire la suite', p) %>
+            </div>
+            <br clear="all" />
+            <hr />
+
+        <% end %>
+
+    <% else %>
+
+        <h1>Pas encore d'articles, mais ça viendra</h1>
+
+    <% end %>
+  </div>
+</div>
 
 
-<%end %>
