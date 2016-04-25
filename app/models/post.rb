@@ -9,4 +9,5 @@ class Post < ActiveRecord::Base
   :path => "#{Rails.root}/public/system/:class/:attachment/:style/:filename",
   :url => '/system/:class/images/:style/:basename.:extension'
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 end

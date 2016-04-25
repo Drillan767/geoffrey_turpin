@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-10 news-sight">
               <h5>Le <%=p.created_at.strftime('%d/%m/%Y') %></h5>
-              <p><%= truncate p.contenu, :length => 350, :separator => ' '%></p>
+              <p><%= strip_tags(truncate p.contenu, :length => 350, :separator => ' ')%></p>
               <%=link_to('Lire la suite', p) %>
             </div>
             <br clear="all" />

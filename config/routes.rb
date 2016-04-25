@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   match '/musiques', :to => 'pages#musiques', :via => [:get, :post]
   match '/plan', :to => 'pages#mapping', :via => :get
   match '/mentions_legales', :to => 'pages#mentions', :via => :get
+  match '/plan', :to => 'pages#mapping', :via => :get
 
   get '/contact', to: 'contacts#new' , as: :new_contact
   post '/contact', to: 'contacts#create', as: :contacts

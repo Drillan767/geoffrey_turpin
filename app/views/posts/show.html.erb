@@ -2,4 +2,4 @@
 <p>Créé le <%= @post.created_at.strftime('%d/%m/%Y')%></p>
 
 <%=image_tag(@post.image.url(:original)) %>
-<p><%=@post.contenu%></p>
+<p><%=@post.contenu.html_safe %></p>
