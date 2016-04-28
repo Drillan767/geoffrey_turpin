@@ -28,6 +28,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
+gem 'nokogiri', '1.6.8.rc3'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -43,7 +45,6 @@ gem 'mail'
 #Admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'formtastic', '~> 3.1', '>= 3.1.3'
-gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'devise'
 gem 'paperclip'
 gem 'ckeditor'
