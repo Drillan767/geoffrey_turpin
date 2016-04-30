@@ -17,24 +17,17 @@ $(document).ready(function() {
 
     });
 
-	$(window).resize(function () {
-		resizePanel();
-	});
-
-	$(window).resize(function () {
-		resizePanel();
-	});
 
     //Script pour le header
     //Définir sur quelle page on est
     var currentURL = document.location.href;
-    $('div.header-link.active').removeClass('active');
+    $('div.header-link.current').removeClass('current');
     activeLinks = $('div.header-link a').filter(function () {
         return this.href === currentURL;
-    }).closest('div.header-link').addClass('active');
+    }).closest('div.header-link').addClass('current');
 
     //Effet de passage de la souris sur un lien
-    $(".header-link").not(".active").mouseenter(function(){
+    $(".header-link").not(".current").mouseenter(function(){
         $(this).addClass("hover");
         $(this).parent().css("margin-top", "-3px")
     }).mouseleave(function(){
@@ -61,7 +54,7 @@ $("#b2009").on("click", function(){
     $(".biography-desc").empty().append(
         //Ceci :
         "<h3>2009</h3>" +
-        "<p>Ceci est l'année 2009. C'était chouette, vraiment. Y'a eu une canicule, je crois.</p>"
+        "<p>Contenu bientôt disponible</p>"
     );
 
 });
@@ -73,7 +66,7 @@ $("#b2015").on("click", function(){
 
     $(".biography-desc").empty().append(
         "<h3>2015</h3>" +
-        "<p>Et sinon ça va vous ? Moi je me fais un poil chier en vrai.</p>"
+        "<p>Contenu bientôt disponible</p>"
     );
 
 });
@@ -85,7 +78,7 @@ $("#soon").on("click", function(){
 
     $(".biography-desc").empty().append(
         "<h3>Bientôt</h3>" +
-        "<p>VOUS N'ETES PAS PREEEEEEEEETS !</p>"
+        "<p>Contenu bientôt disponible</p>"
     );
 
 });
@@ -99,7 +92,7 @@ $("#b2003").on("click", function(){
 
     $(".biography-desc").empty().append(
         "<h3>2003</h3>" +
-        "<p>Ceci est l'année 2003. C'était chouette, vraiment. Y'a eu une canicule, je crois.</p>"
+        "<p>Contenu bientôt disponible</p>"
     );
 
 });
@@ -112,7 +105,7 @@ $("#b2011").on("click", function(){
 
     $(".biography-desc").empty().append(
         "<h3>2011</h3>" +
-        "<p>Cette année là j'ai passé mon bac. Je l'ai eu au rattrapage. MDR.</p>"
+        "<p>Contenu bientôt disponible</p>"
     );
 
 });
@@ -124,24 +117,9 @@ $("#b2016").on("click", function(){
 
     $(".biography-desc").empty().append(
         "<h3>2016</h3>" +
-        "<p>Ceci est l'année 2009. C'était chouette, vraiment. Y'a eu une canicule, je crois.</p>"
+        "<p>Contenu bientôt disponible</p>"
     );
 
 });
-
-function resizePanel() {
-
-	width = $(window).width();
-	height = $(window).height();
-
-	mask_width = width * $('.item').length;
-		
-	$('#debug').html(width  + ' ' + height + ' ' + mask_width);
-		
-	$('#wrapper, .item').css({width: width, height: height});
-	$('#mask').css({width: mask_width, height: height});
-	$('#wrapper').scrollTo($('a.selected').attr('href'), 0);
-		
-}
 
 

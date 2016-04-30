@@ -3,18 +3,19 @@
 <title><%= titre %></title>
 
 <div class="row landingpage">
-  <div class="col-md-2 col-md-offset-8">
-    <%= image_tag("logo", :class => 'landing-logo')%>
+  <div class="col-md-2 col-md-offset-8 landing-logo">
+    <%= image_tag("logo")%>
   </div>
-
-  <div class="col-md-1 col-md-offset-6 landing-button">
-    <%= link_to("Découvrez", "/biographie")%>
+  <div class="col-md-offset-7 col-md-4">
+      <div class="col-md-4 landing-button">
+        <%= link_to("Découvrez", "/biographie")%>
+      </div>
+      <div class="col-md-offset-2 col-md-4 landing-button">
+        <%= link_to("Ecoutez", "/musiques")%>
+      </div>
   </div>
-  <div class="col-md-1 col-md-offset-2 landing-button">
-    <%= link_to("Ecoutez", "/musiques")%>
-  </div>
-
 </div>
+<br clear="all" />
 
 <hr class="footer-start">
 <footer class="row footer">

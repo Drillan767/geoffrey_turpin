@@ -32,25 +32,40 @@
     margin: 0;
 }
 
-.landing-logo{
+@media screen and (max-width: 992px) {
+    .landing-logo{
+        text-align: center;
+        margin: 0;
+    }
+}
+
+
+.landing-logo img{
     width: 220px;
     margin-top: 10px;
     margin-left: -15px;
 }
 
-.landing-button {
+
+.landing-button{
     background-color: #000;
     height: 85px;
-    width: 31vh;
     text-align: center;
     padding-top: 5px;
     margin-top: 20vh;
     font-family: Simplifica, sans-serif;
 }
 
+@media screen and (max-width: 992px) {
+    .landing-button {
+        margin-top: 10px;
+
+    }
+}
+
 .landing-button a{
     color: #fff;
-    font-size: 50px;
+    font-size: 5.3rem;
     font-family: Simplifica, sans-serif;
 }
 
@@ -68,8 +83,9 @@
 }
 
 .header-logo img{
-    width: 110px;
+    width: 100%;
     margin-left: 65px;
+    margin-top: 30px;
 }
 
 .header-elements{
@@ -79,7 +95,7 @@
 .header-link{
     text-align: center;
     margin-top: 55px;
-    font-size: 30px;
+    font-size: 2.5em;
 }
 
 .header-link a{
@@ -97,6 +113,8 @@
     margin-top: 55px;
 }
 
+/*Tests*/
+
 
 .hr-top{
     margin: 20px 30px;
@@ -110,7 +128,7 @@
     border-top: 1px solid #000;
 }
 
-.active{
+.current{
     border-style: solid hidden;
     border-color: #000;
 }
@@ -123,6 +141,17 @@
     border-style: solid hidden;
     border-color: #000;
     margin-bottom: 1px;
+}
+
+@media screen and (max-width: 992px) {
+    .header-share{
+        text-align: center;
+    }
+    
+    .header-logo img{
+        width: 33%;
+        margin-left: 33%;
+    }
 }
 
 /* Biographie */
@@ -230,6 +259,32 @@
     padding: 20px;
 }
 
+@media screen and (max-width: 992px) {
+    .biography-year img{
+        display: none;
+    }
+    
+    .hr{
+        display: none;
+    }
+
+    .biography-raey img{
+        display: none;
+    }
+
+    .biography-raey{
+        margin-top: 10px;
+    }
+
+    .biography-desc{
+        margin-top: 45px;
+    }
+
+    .biography-chrono{
+        height: 250px;
+    }
+}
+
 
 /* Musiques */
 
@@ -272,12 +327,6 @@
 #mask {
     width:500%;
     height:100%;
-}
-
-.item {
-    width:20%;
-    height:100%;
-    float:left;
 }
 
 
@@ -357,6 +406,13 @@
 
 .footer-address{
     line-height: 25px;
+
+}
+
+@media screen and (max-width: 992px) {
+    .footer-address{
+        text-align: center;
+    }
 }
 
 .footer-link{
@@ -370,4 +426,10 @@
 .footer-link a:hover{
     color: #000;
     text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+    .error404 img {
+        width: 100%;
+    }
 }
