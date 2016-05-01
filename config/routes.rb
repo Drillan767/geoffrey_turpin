@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   match '/biographie', :to => 'pages#biographie', :via => [:get, :post]
   match '/musiques', :to => 'pages#musiques', :via => [:get, :post]
-  match '/plan', :to => 'pages#mapping', :via => :get
   match '/mentions_legales', :to => 'pages#mentions', :via => :get
   match '/plan', :to => 'pages#mapping', :via => :get
 
