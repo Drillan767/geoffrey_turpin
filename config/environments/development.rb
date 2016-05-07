@@ -7,7 +7,7 @@ Rails.application.configure do
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
   config.assets.debug = true
-  config.assets.digest = true
+  config.assets.digest = false
   config.assets.raise_runtime_errors = true
 
   Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'

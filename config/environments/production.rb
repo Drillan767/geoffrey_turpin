@@ -5,8 +5,9 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.js_compressor = :uglifier
-  config.assets.compile = false
-  config.assets.digest = true
+  config.assets.compile = true
+  config.assets.precompile =  ['*.js', '*.css']
+  config.assets.digest = false
   config.log_level = :debug
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
