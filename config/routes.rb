@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  mount Ckeditor::Engine => '/ckeditor'
   root :to => 'pages#accueil'
 
   match '/biographie', :to => 'pages#biographie', :via => [:get, :post]

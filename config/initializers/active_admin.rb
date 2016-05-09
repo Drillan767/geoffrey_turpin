@@ -2,6 +2,8 @@ ActiveAdmin.setup do |config|
 
   config.site_title = "Geoffrey Turpin"
 
+  config.before_filter :set_admin_locale
+
   config.authentication_method = :authenticate_admin_user!
 
   config.current_user_method = :current_admin_user
@@ -11,12 +13,5 @@ ActiveAdmin.setup do |config|
   config.comments = false
 
   config.batch_actions = true
-
-  config.register_javascript 'ckeditor/ckeditor.js'
-
-  config.register_javascript 'ckeditor/init.js'
-
-
-
 
 end

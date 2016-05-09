@@ -11,6 +11,6 @@ Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 module GeoffreyTurpin
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
   end
 end
