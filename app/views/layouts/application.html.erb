@@ -34,12 +34,12 @@
       <div class="row">
         <div class="col-xs-4 header-element">
           <div class="col-md-12 header-link">
-          <%= link_to("Biographie", "/biographie") %>
+          <%= link_to(t('layout.biographie'), "/biographie") %>
           </div>
         </div>
         <div class="col-xs-4 header-element">
           <div class="col-md-12 header-link">
-            <%= link_to("Musiques", "/musiques") %>
+            <%= link_to(t('layout.musiques'), "/musiques") %>
           </div>
         </div>
         <div class="col-xs-4 header-element">
@@ -53,6 +53,8 @@
     <div class="col-md-2 header-share">
       <%= link_to image_tag("facebook"), 'https://www.facebook.com/GeoffreyTurpinCompositeur', target: '_blank' %>
       <%= link_to image_tag("youtube"), 'https://www.youtube.com/channel/UC6goSAztM5jbRY9k735hqZQ', target: '_blank' %>
+      <%= link_to image_tag("linkedin"), 'https://fr.linkedin.com/in/geoffrey-turpin-a89129ab', target: '_blank' %>
+
     </div>
   </header>
   <hr class="hr-top">
@@ -69,11 +71,20 @@
     <div class="col-md-2 ">
       <p class="footer-address">06.72.44.40.45<br /> turpin-geoffrey@live.com</p>
     </div>
-    <div class="col-md-2 col-md-offset-7 footer-link">
-      <%= link_to("mentions légales", "/mentions_legales")%>
+    <div class="col-md-3 col-md-offset-6 footer-link">
+      <%= link_to(t('layout.cgu'), '/mentions_legales')%>
     </div>
     <div class="col-md-1 footer-link">
-      <%= link_to("Plan du site", "/plan")%>
+      <%= link_to(t('layout.plansite'), "/plan")%>
+    </div>
+    <div class="col-md-1 footer-link">
+      <%= I18n.locale %>
+      <% if I18n.locale == :en %>
+          <%= link_to('Français', locale: :fr) %>
+
+      <% else I18n.locale == :fr %>
+          <%= link_to('English', locale: :en) %>
+      <% end %>
     </div>
   </footer>
     <%= javascript_include_tag 'jquery.min', 'bootstrap', 'script' %>

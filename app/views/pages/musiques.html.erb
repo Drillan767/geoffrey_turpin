@@ -2,10 +2,10 @@
 <div id="carousel-example-generic" class="carousel slide">
 
   <div class="col-md-offset-2 col-md-3 col-xs-5 col-xs-offset-1 submenu-shown submenu" data-target="#carousel-example-generic" data-slide-to="0" id="compoimage">
-    <p>Composée pour l'image</p>
+    <p><%= t('musiques.compoimage')%></p>
   </div>
   <div class="col-md-offset-2 col-md-3 submenu col-xs-5 col-xs-offset-1" data-target="#carousel-example-generic" data-slide-to="1" id="compomusique">
-    <p>Musique pure</p>
+    <p><%= t('musiques.musiquepure')%></p>
   </div>
 
   <!-- Wrapper for slides -->
@@ -14,7 +14,7 @@
     <div class="item active">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="guf-title">Composee pour l'image</h3>
+          <h3 class="guf-title"><%= t('musiques.compoimage')%></h3>
         </div>
         <div class="image-block"> <!-- Copie-colle ça pour avoir le modèle de base à modifier ensuite-->
           <div class="col-md-6 image-video">
@@ -24,7 +24,7 @@
             <p class="image-title">Démo fin 2015</p>
             <p class="image-author">Geoffrey Turpin - 11/2015</p>
             <p class="image-sbtitle"> </p>
-            <p class="image-content">Si vous êtes pressés, vous pouvez regarder ce petit florilège d'extraits de travaux récents et variés ! Changements réguliers. </p>
+            <p class="image-content"><%= t('musiques.desc1') %></p>
           </div>
         </div>
 
@@ -37,9 +37,7 @@
             <p class="image-title">La Horde</p>
             <p class="image-author">Gamagora - 29/04/2016</p>
             <p class="image-sbtitle">Musique symphonique et vocale, sound design et intégration (Unreal Engine 4)</p>
-            <p class="image-content">Trailer du jeu vidéo d'action / stratégie inspiré librement du roman d'Alain Damasio "La Horde du Contrevent" paru en 2006. Avec la voix de Richard Darbois !<br />
-
-              Disponible en téléchargement (Windows 7 ou plus) sur le site web : http://lahorde.comli.com/</p>
+            <p class="image-content"><%= t('musiques.desc2') %></p>
           </div>
         </div>
 
@@ -51,7 +49,7 @@
             <p class="image-title">Sang d'Encre</p>
             <p class="image-author">Tom Gouill - Jeoffrey Lavanche - Mélanie Tournois- 2012</p>
             <p class="image-sbtitle">Musique symphonique et vocale</p>
-            <p class="image-content">Exercice de remise en musique du court métrage "Sang d'Encre". </p>
+            <p class="image-content"><%= t('musiques.desc3') %></p>
           </div>
         </div>
 
@@ -63,10 +61,7 @@
             <p class="image-title">Webimatics</p>
             <p class="image-author">Anaïs Gaudioz - 03/2016</p>
             <p class="image-sbtitle">Musique type "publicité" orchestral </p>
-            <p class="image-content">Projet de cours – Motion Design pour Webimatics qui est une plateforme eTechSanté dans le domaine du cloud computing crée par l’université Lyon 1.
-              En collaboration avec Deborah LAYANI pour la création de la chartre graphique<br />
-              <br />
-              Site web d'Anaïs Gaudioz : http://anais-gaudioz.fr/ </p>
+            <p class="image-content"><%= t('musiques.desc4') %></p>
           </div>
         </div>
 
@@ -78,9 +73,7 @@
             <p class="image-title">Web book</p>
             <p class="image-author">WCK Production - 04/2016</p>
             <p class="image-sbtitle">Musique électro / ambiant / experimental </p>
-            <p class="image-content">Vidéo d'introduction du site du créateur WCK Production.<br />
-              <br />
-              Site web de WCK Production : http://wcktom.wix.com/wckproduction </p>
+            <p class="image-content"><%= t('musiques.desc5') %></p>
           </div>
         </div>
 
@@ -96,8 +89,7 @@
             <p class="image-title">La Tombe du Typhon</p>
             <p class="image-author">Yohan Monange - 03/2016</p>
             <p class="image-sbtitle">Musique symphonique, vocale et électronique et sound design </p>
-            <p class="image-content">Projet de fin d'étude pour l'école Émile Cohl.<br />
-              Page Facebook du Yohan Monange : https://www.facebook.com/yohan.monange </p>
+            <p class="image-content"><%= t('musiques.desc6') %></p>
           </div>
         </div>
       </div>
@@ -106,7 +98,7 @@
     <div class="item">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="guf-title">Musique pure</h3>
+          <h3 class="guf-title"><%= t('musiques.musiquepure')%></h3>
         </div>
         <div class="music-block">
           <div class="music-embed">
@@ -114,7 +106,7 @@
           </div>
           <div class="music-desc">
             <p>
-              Voici quelques créations de "musique pure", c'est à dire créée sans image au préalabre. Quelques exercices de style !
+              <%= t('musiques.desc7') %>
             </p>
           </div>
         </div>
@@ -123,6 +115,4 @@
       </div>
     </div>
   </div> <!--/#wrapper -->
-</div>
-</div>
 <br clear="all" />

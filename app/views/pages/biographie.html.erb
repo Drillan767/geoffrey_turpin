@@ -4,23 +4,20 @@
   </div>
   <div class="col-md-4 biography-text">
     <h3 class="guf-title">Geoffrey Turpin</h3>
-    <p>Issu d'une famille portée sur la peinture et le cinéma, Geoffrey
-      commence l'étude de la musique avec la guitare classique en 2004. <br />
-      <br />
-      Ses collaborations avec son frère Vincent Turpin, réalisateur,
-      contribuent à enrichir son expérience de composition appliquée
-      à l'image. <br />
-      <br />
-      De nombreux projets, appliqués ou non à l'image, on vu le jour,
-      allant de compositions et d'interprétations au sein de groupes
-      de style divers, d'arrangement pour d'autres artistes, mais
-      surtout de compositions et de sound design pour l'image.
+    <p>
+      <%= t('biographie.p1') %>
+    </p>
+    <p>
+      <%= t('biographie.p2') %>
+    </p>
+    <p>
+      <%= t('biographie.p3') %>
     </p>
   </div>
 </div>
 <div class="row parkour">
   <div class="col-md-offset-2 col-md-7 biography-chrono">
-    <h3 class="guf-title">Parcours</h3>
+    <h3 class="guf-title"><%= t('biographie.parcours') %></h3>
 
     <div class="biography-year col-md-2 col-xs-4 col-md-offset-2">
       <p id="b2009">2009</p>
@@ -31,7 +28,7 @@
       <%=image_tag('chrono/year') %>
     </div>
     <div class="biography-year col-md-2 col-md-offset-2 col-xs-4">
-      <p id="soon">À suivre</p>
+      <p id="soon"><%= t('biographie.asuivre')%></p>
       <%=image_tag('chrono/year') %>
     </div>
     <br clear="all">

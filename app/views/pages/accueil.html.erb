@@ -27,10 +27,10 @@
   </div>
   <div class="col-md-offset-7 col-md-4">
       <div class="col-md-4 landing-button">
-        <%= link_to("Découvrez", "/biographie")%>
+        <%= link_to(t('accueil.decouvre'), "/biographie")%>
       </div>
       <div class="col-md-offset-2 col-md-4 landing-button">
-        <%= link_to("Ecoutez", "/musiques")%>
+        <%= link_to(t('accueil.ecoute'), "/musiques")%>
       </div>
   </div>
 </div>
@@ -42,9 +42,9 @@
     <p class="footer-address">06.72.44.40.45<br /> turpin.geoffrey@live.com</p>
   </div>
   <div class="col-md-2 col-md-offset-7 footer-link">
-    <%= link_to("mentions légales", "/mentions_legales")%>
+    <%= link_to(t('layout.cgu'), "/mentions_legales")%>
   </div>
   <div class="col-md-1 footer-link">
-    <%= link_to("Plan du site", "/plan")%>
+    <%= link_to(t('layout.plansite'), "/plan")%>
   </div>
 </footer>
