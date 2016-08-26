@@ -88,6 +88,11 @@
     </div>
   </footer>
     <%= javascript_include_tag 'jquery.min', 'bootstrap', 'script' %>
+    <% if I18n.locale == :en %>
+      <%= javascript_include_tag 'bio_en' %>
+    <% else I18n.locale == :fr %>
+      <%= javascript_include_tag 'bio_fr' %>
+    <% end %>
   </div>
 </body>
 </html>
