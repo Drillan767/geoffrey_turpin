@@ -19,7 +19,7 @@
   <%= @contact.objet %><br />
   <br />
   <strong>Message :</strong><br />
-  <%= @contact.message %>
+  <%= simple_format(@contact.message) %>
 </p>
 </body>
 </html>

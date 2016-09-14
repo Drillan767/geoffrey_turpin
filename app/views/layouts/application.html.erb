@@ -71,14 +71,13 @@
     <div class="col-md-2 ">
       <p class="footer-address">06.72.44.40.45<br /> turpin-geoffrey@live.com</p>
     </div>
-    <div class="col-md-3 col-md-offset-6 footer-link">
+    <div class="col-md-2 col-md-offset-6 footer-link">
       <%= link_to(t('layout.cgu'), '/mentions_legales')%>
     </div>
     <div class="col-md-1 footer-link">
       <%= link_to(t('layout.plansite'), "/plan")%>
     </div>
     <div class="col-md-1 footer-link">
-      <%= I18n.locale %>
       <% if I18n.locale == :en %>
           <%= link_to('Français', locale: :fr) %>
 

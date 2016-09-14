@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   def accueil
     @titre = "Accueil"
     render :layout => false
-
   end
 
   def musiques
