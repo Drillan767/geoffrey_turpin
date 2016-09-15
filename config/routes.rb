@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     match '/mentions_legales', :to => 'pages#mentions', :via => :get
     match '/plan', :to => 'pages#mapping', :via => :get
 
-    resources :articles
+    resources :article
 
     get '/contact', to: 'contacts#new' , as: :new_contact
     post '/contact', to: 'contacts#create', as: :contacts

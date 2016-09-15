@@ -14,8 +14,4 @@ ActiveAdmin.setup do |config|
 
   config.batch_actions = true
 
-  config.register_javascript 'ckeditor/ckeditor.js'
-
-  config.register_javascript 'ckeditor/init.js'
-
 end

@@ -6,8 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
-
 module GeoffreyTurpin
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true

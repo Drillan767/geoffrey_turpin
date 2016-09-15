@@ -14,8 +14,6 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.active_record.dump_schema_after_migration = false
 
-  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
-
   #Contact
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true

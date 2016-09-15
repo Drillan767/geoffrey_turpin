@@ -1,0 +1,22 @@
+<div class="row articles">
+  <div class="col-md-10 col-md-offset-1">
+
+    <% if !@articles.any? %>
+        <h1 class="articles-title">Aucun article pour l'instant, revenez plus tard !</h1>
+    <% end %>
+    <% @articles.each do |p| %>
+        <div class="articles-block">
+          <h3><%= link_to(p.titre, p, :class => 'articles-title') %></h3>
+          <h3 class="articles-date">Le <%= p.created_at.strftime('%d/%m/%Y') %></h3>
+          <!-- Emplacement image -->
+          <%= image_tag(p.image.url(:thumb)) %>
+          <p class="article-content"><%= truncate(p.contenu, :length => 200, :separator => ' ')%></p>
+          <%= link_to('Lire la suite', p, :class => 'articles-next') %>
+          <br clear="all" />
+          <div class="col-md-10 col-md-offset-1">
+            <hr class="articles-end" />
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
