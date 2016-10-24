@@ -464,13 +464,6 @@
 
 }
 
-@media screen and (max-width: 768px) {
-    .footer-address{
-        text-align: center;
-    }
-
-
-}
 
 .footer-link{
     text-align: center;
@@ -490,6 +483,10 @@
     .landing-logo{
         text-align: center;
         margin: 0;
+    }
+
+    .landing-logo img{
+        width: 40%;
     }
 
     .biography-year img{
@@ -603,8 +600,15 @@ and (max-device-width : 667px)
 and (orientation : portrait)
 and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3){
 
+    .landing-page{
+        height: 90vh;
+    }
+
     .landing-logo{
         text-align: center;
+    }
+    .landing-logo img{
+        width: 40%;
     }
 
     .landing-button:first-child{
@@ -621,7 +625,6 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3){
 
     .footer *{
         text-align: center;
-        font-size: 1.5em;
     }
 
     .biography-photo{
@@ -687,4 +690,92 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3){
         height: 10em;
     }
 
+}
+
+@media only screen
+and (max-device-width : 768px) {
+
+    .landing-page{
+        height: 90vh;
+    }
+
+    .landing-logo{
+        text-align: center;
+    }
+
+    .landing-button:first-child{
+        margin-top: 10vw;
+    }
+
+    .header-link{
+        font-size: 5.5em;
+    }
+
+    .landing-button:last-child{
+        margin-top: 5vw;
+    }
+
+    .footer *{
+        text-align: center;
+    }
+
+    .biography-photo{
+        text-align: center;
+    }
+
+    .biography-year{
+        font-size: 2em;
+    }
+
+
+    .biography-desc ul{
+        font-size: 1.5em;
+    }
+
+    .guf-title{
+        font-size: 5em !important;
+    }
+
+    .submenu p{
+        font-size: 3em;
+        line-height: 1em;
+    }
+
+    .image-desc{
+        height: auto;
+    }
+
+    .image-title{
+        font-size: 7em
+    }
+
+    .image-author{
+        font-size: 5em
+    }
+
+    .image-content{
+        font-size: 1.5em;
+        line-height: 25px;
+        margin-top: 1em;
+    }
+
+    .image-sbtitle{
+        font-size: 2.75em;
+        margin-top: 1em;
+        line-height: 1em;
+    }
+
+    .music-desc p{
+        font-size: 2.5em;
+
+    }
+
+    .form-control{
+        height: 3em;
+        font-size: 4em;
+    }
+
+    #contact_message{
+        height: 10em;
+    }
 }
