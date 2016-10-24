@@ -1,58 +1,64 @@
-<%= stylesheet_link_tag    'bootstrap.min', 'style', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-<title><%= titre %></title>
+<html>
+<head>
+  <meta charset="UTF-8" />
 
-<meta name="description" content="Compositeur, musicien et artiste">
-<meta name="keywords" content="Geoffrey Turpin, compositeur, musicien, interprete, guitariste, jeux vidéos, Lyon">
-<meta property="og:site_name" content="Geoffrey Turpin" />
-<meta property="og:title" content="Geoffrey Turpin | Accueil" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.geoffreyturpin.fr/" />
-<meta property="og:image" content="http://geoffreyturpin.fr/img/guitare.jpg" />
-<meta property="og:description" content="Compositeur de musiques de films, jeux vidéos et pure" >
-<meta name="author" content="Joseph Levarato">
-<meta name="generator" content="Rubymine 2016.1">
-<meta name="geo.region" content="FR" />
-<meta name="geo.placename" content="Lyon" />
+  <title><%= titre %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compositeur, musicien et artiste">
+  <meta name="keywords" content="Geoffrey Turpin, compositeur, musicien, interprete, guitariste, jeux vidéos, Lyon">
+  <meta property="og:site_name" content="Geoffrey Turpin" />
+  <meta property="og:title" content="Geoffrey Turpin | Accueil" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.geoffreyturpin.fr/" />
+  <meta property="og:image" content="http://geoffreyturpin.fr/img/guitare.jpg" />
+  <meta property="og:description" content="Compositeur de musiques de films, jeux vidéos et pure" >
+  <meta name="author" content="Joseph Levarato">
+  <meta name="generator" content="Rubymine 2016.1">
+  <meta name="geo.region" content="FR" />
+  <meta name="geo.placename" content="Lyon" />
 
-<meta content="jd.levarato@gmail.com" name="dc.creator">
-<meta content="2016" name="dc.date">
-
-<!-- Début body -->
-
-<div class="row landingpage">
-  <div class="col-md-2 col-md-offset-8 landing-logo">
-    <%= image_tag("logo")%>
+  <meta content="jd.levarato@gmail.com" name="dc.creator">
+  <meta content="2016" name="dc.date">
+  <%= stylesheet_link_tag    'bootstrap.min', 'style', media: 'all', 'data-turbolinks-track' => true %>
+</head>
+  <!-- Début body -->
+<body>
+  <div class="row landingpage">
+    <div class="col-md-2 col-md-offset-8 landing-logo">
+      <%= image_tag("logo")%>
+    </div>
+    <div class="col-md-offset-7 col-md-4">
+        <div class="col-md-4 landing-button">
+          <%= link_to(t('accueil.decouvre'), "/biographie")%>
+        </div>
+        <div class="col-md-offset-2 col-md-4 landing-button">
+          <%= link_to(t('accueil.ecoute'), "/musiques")%>
+        </div>
+    </div>
   </div>
-  <div class="col-md-offset-7 col-md-4">
-      <div class="col-md-4 landing-button">
-        <%= link_to(t('accueil.decouvre'), "/biographie")%>
-      </div>
-      <div class="col-md-offset-2 col-md-4 landing-button">
-        <%= link_to(t('accueil.ecoute'), "/musiques")%>
-      </div>
-  </div>
-</div>
-<br clear="all" />
+  <br clear="all" />
 
-<hr class="footer-start">
-<footer class="row footer">
-  <div class="col-md-2 ">
-    <p class="footer-address">06.72.44.40.45<br /> turpin-geoffrey@live.com</p>
-  </div>
-  <div class="col-md-2 col-md-offset-6 footer-link">
-    <%= link_to(t('layout.cgu'), '/mentions_legales')%>
-  </div>
-  <div class="col-md-1 footer-link">
-    <%= link_to(t('layout.plansite'), "/plan")%>
-  </div>
-  <div class="col-md-1 footer-link">
-    <% if I18n.locale == :en %>
-        <%= link_to('Français', locale: :fr) %>
+  <hr class="footer-start">
+  <footer class="row footer">
+    <div class="col-md-2 ">
+      <p class="footer-address">06.72.44.40.45<br /> turpin-geoffrey@live.com</p>
+    </div>
+    <div class="col-md-2 col-md-offset-6 footer-link">
+      <%= link_to(t('layout.cgu'), '/mentions_legales')%>
+    </div>
+    <div class="col-md-1 footer-link">
+      <%= link_to(t('layout.plansite'), "/plan")%>
+    </div>
+    <div class="col-md-1 footer-link">
+      <% if I18n.locale == :en %>
+          <%= link_to('Français', locale: :fr) %>
 
-    <% else I18n.locale == :fr %>
-        <%= link_to('English', locale: :en) %>
-    <% end %>
-  </div>
-</footer>
+      <% else I18n.locale == :fr %>
+          <%= link_to('English', locale: :en) %>
+      <% end %>
+    </div>
+  </footer>
+
+</body>
+</html>

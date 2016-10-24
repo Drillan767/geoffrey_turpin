@@ -32,13 +32,6 @@
     margin: 0;
 }
 
-@media screen and (max-width: 992px) {
-    .landing-logo{
-        text-align: center;
-        margin: 0;
-    }
-}
-
 
 .landing-logo img{
     width: 220px;
@@ -55,13 +48,6 @@
     padding-top: 5px;
     margin-top: 20vh;
     font-family: Simplifica, sans-serif;
-}
-
-@media screen and (max-width: 992px) {
-    .landing-button {
-        margin-top: 10px;
-
-    }
 }
 
 .landing-button a{
@@ -258,32 +244,6 @@
     background: url('../selector.png') no-repeat;
     background-size: 100% 100%;
     padding: 20px;
-}
-
-@media screen and (max-width: 992px) {
-    .biography-year img{
-        display: none;
-    }
-    
-    .hr{
-        display: none;
-    }
-
-    .biography-raey img{
-        display: none;
-    }
-
-    .biography-raey{
-        margin-top: 10px;
-    }
-
-    .biography-desc{
-        margin-top: 45px;
-    }
-
-    .biography-chrono{
-        height: 250px;
-    }
 }
 
 
@@ -504,10 +464,12 @@
 
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .footer-address{
         text-align: center;
     }
+
+
 }
 
 .footer-link{
@@ -523,8 +485,206 @@
     text-decoration: none;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 769px) and (max-width: 992px) {
+
+    .landing-logo{
+        text-align: center;
+        margin: 0;
+    }
+
+    .biography-year img{
+        display: none;
+    }
+
+    .hr{
+        display: none;
+    }
+
+    .biography-raey img{
+        display: none;
+    }
+
+    .biography-raey{
+        margin-top: 10px;
+    }
+
+    .biography-desc{
+        margin-top: 45px;
+    }
+
+    .biography-chrono{
+        height: 250px;
+    }
+
     .error404 img {
         width: 100%;
     }
+
+    .landing-button:first-child{
+        margin-top: 10vw;
+    }
+
+    footer{
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .landing-button:last-child{
+        margin-top: 5vw;
+    }
+
+    .header-link{
+        font-size: 3.5em;
+    }
+
+    .biography-text p{
+        font-size: 1.5em;
+    }
+
+    .biography-photo{
+        text-align: center;
+    }
+
+    .biography-year p, .biography-raey p, .biography-desc li{
+        font-size: 1.5em;
+    }
+
+    .image-title{
+        font-size: 5em
+    }
+
+    .image-author{
+        font-size: 3em
+    }
+
+    .image-content{
+        font-size: 1.5em;
+        line-height: 25px;
+        margin-top: 1em;
+    }
+
+    .image-sbtitle{
+        font-size: 1.75em;
+    }
+
+    .music-desc{
+        height:auto;
+    }
+
+    .music-desc p{
+        font-size: 1.5em;
+
+    }
+
+    .guf-title{
+        text-align: center;
+    }
+
+    .form-control{
+        height: 55px;
+        font-size: 3em;
+    }
+
+    .contact-details{
+        font-size: 2em;
+        text-align: center;
+    }
+
+    input.submit{
+        font-size: 1.5em;
+    }
+
+
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 667px)
+and (orientation : portrait)
+and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3){
+
+    .landing-logo{
+        text-align: center;
+    }
+
+    .landing-button:first-child{
+        margin-top: 10vw;
+    }
+
+    .header-link{
+        font-size: 5.5em;
+    }
+
+    .landing-button:last-child{
+        margin-top: 5vw;
+    }
+
+    .footer *{
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .biography-photo{
+        text-align: center;
+    }
+
+    .biography-year{
+        font-size: 2em;
+    }
+
+    .biography-text{
+        font-size: 2em;
+    }
+
+    .biography-desc ul{
+        font-size: 1.5em;
+    }
+
+    .guf-title{
+        font-size: 5em !important;
+    }
+
+    .submenu p{
+        font-size: 3em;
+        line-height: 1em;
+    }
+
+    .image-desc{
+        height: auto;
+    }
+
+    .image-title{
+        font-size: 7em
+    }
+
+    .image-author{
+        font-size: 5em
+    }
+
+    .image-content{
+        font-size: 1.5em;
+        line-height: 25px;
+        margin-top: 1em;
+    }
+
+    .image-sbtitle{
+        font-size: 2.75em;
+        margin-top: 1em;
+        line-height: 1em;
+    }
+
+    .music-desc p{
+        font-size: 2.5em;
+
+    }
+
+    .form-control{
+        height: 3em;
+        font-size: 4em;
+    }
+
+    #contact_message{
+        height: 10em;
+    }
+
 }
