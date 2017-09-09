@@ -1,7 +1,0 @@
-SECRET_KEY_BASE: '269def2d4ee873c1e60bea2420125877e89b9e2332320dc4a0093ee6cc5c35537bc0145a432f155f0c31964931c3dd471992e248f6c0ce965a3aab3dc5460efe'
-
-mailgun_api_key: 'key-ff4c096464acb915b12fd61087910570'
-mailgun_login: 'mg.geoffreyturpin.fr'
-mailgun_password: '4c738aab3edcbd3d920a798bb96ccd51'
-
-db_password: 'RedKhezuHR5'
