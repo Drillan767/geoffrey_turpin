@@ -27,39 +27,44 @@
   <div class="container-fluid">
   <header class="row header">
     <div class="col-md-1 header-logo">
-      <%= link_to(image_tag("logo"), "/")%>
+      <%= link_to(image_tag('logo'), '/')%>
     </div>
 
     <div class="col-md-offset-1 col-md-8">
       <div class="row">
-        <div class="col-xs-4 header-element">
+        <div class="col-xs-3 header-element">
           <div class="col-md-12 header-link">
-          <%= link_to(t('layout.biographie'), "/biographie") %>
+          <%= link_to(t('layout.biographie'), '/biographie') %>
           </div>
         </div>
-        <div class="col-xs-4 header-element">
+        <div class="col-xs-3 header-element">
           <div class="col-md-12 header-link">
-            <%= link_to(t('layout.musiques'), "/musiques") %>
+            <%= link_to(t('layout.musiques'), '/musiques') %>
           </div>
         </div>
-        <div class="col-xs-4 header-element">
+        <div class="col-xs-3 header-element">
           <div class="col-md-12 header-link">
-            <%= link_to("Contact", "/contact") %>
+            <%= link_to 'Devis', new_devi_path %>
+          </div>
+        </div>
+        <div class="col-xs-3 header-element">
+          <div class="col-md-12 header-link">
+            <%= link_to('Contact', '/contact') %>
           </div>
         </div>
 
       </div>
     </div>
     <div class="col-md-2 header-share">
-      <%= link_to image_tag("facebook"), 'https://www.facebook.com/GeoffreyTurpinCompositeur', target: '_blank' %>
-      <%= link_to image_tag("youtube"), 'https://www.youtube.com/channel/UC6goSAztM5jbRY9k735hqZQ', target: '_blank' %>
-      <%= link_to image_tag("linkedin"), 'https://fr.linkedin.com/in/geoffrey-turpin-a89129ab', target: '_blank' %>
+      <%= link_to image_tag('facebook'), 'https://www.facebook.com/GeoffreyTurpinCompositeur', target: '_blank' %>
+      <%= link_to image_tag('youtube'), 'https://www.youtube.com/channel/UC6goSAztM5jbRY9k735hqZQ', target: '_blank' %>
+      <%= link_to image_tag('linkedin'), 'https://fr.linkedin.com/in/geoffrey-turpin-a89129ab', target: '_blank' %>
 
     </div>
   </header>
   <hr class="hr-top">
-  <% if flash[:success] %>
-    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% if notice %>
+        <div class="alert alert-success"><%= notice %></div>
   <% end %>
 
 
@@ -76,7 +81,7 @@
       <%= link_to(t('layout.cgu'), '/mentions_legales')%>
     </div>
     <div class="col-md-1 footer-link">
-      <%= link_to(t('layout.plansite'), "/plan")%>
+      <%= link_to(t('layout.plansite'), '/plan')%>
     </div>
     <div class="col-md-1 footer-link">
       <% if I18n.locale == :en %>
@@ -87,7 +92,7 @@
       <% end %>
     </div>
   </footer>
-    <%= javascript_include_tag 'jquery.min', 'bootstrap', 'script' %>
+    <%= javascript_include_tag 'application' %>
     <% if I18n.locale == :en %>
       <%= javascript_include_tag 'bio_en' %>
     <% else I18n.locale == :fr %>

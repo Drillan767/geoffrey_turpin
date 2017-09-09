@@ -34,6 +34,22 @@ $(document).ready(function() {
         $(this).parent().css("margin-top", "")
     });
 
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        daysMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+        monthsShort: ['Janvier', 'Fevrier', 'Mars',
+            'Avril', 'Mai', 'Juin',
+            'Juillet', 'Aout', 'Septembre',
+            'Octobre', 'Novembre', 'Decembre']
+    });
+
+    $('#specs').on('cocoon:after-insert', function(e, insertedItem) {
+        console.log(insertedItem);
+    });
+
+
+
+
 });
 
 

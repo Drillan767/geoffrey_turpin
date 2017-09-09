@@ -9,9 +9,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new params[:contact]
 
     if @contact.valid?
-      Mailer.contact_form(@contact).deliver
-      flash[:success] = "Message envoyé avec succès !"
-      redirect_to new_contact_path
+      ContactMailer.new_mail_notification(@contact).deliver
+      redirect_to request.referer || root_path, notice: 'Votre message a été envoyé !'
     else
       render :new
     end

@@ -1,0 +1,22 @@
+<%= form_for(@devis_configuration) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.label :ratio_facturation, 'Prix de la musique à la seconde' %>
+    <%= f.text_field :ratio_facturation %>
+
+    <%= f.label :tva, 'TVA' %>
+    <%= f.text_field :tva %>
+
+    <%= f.label :taux_image, 'Taux pour composition à l\'image' %>
+    <%= f.text_field :taux_image %>
+
+    <%= f.label :deadline, 'Bonus par nouvelle musique demandé' %>
+    <%= f.text_field :deadline %>
+
+    <%= f.label :per_new_music, 'Bonus pour une musique supplémentaire' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

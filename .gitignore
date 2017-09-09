@@ -2,5 +2,7 @@
 !/log/.keep
 /tmp
 /.idea/*
-config/secrets.yml
-config/database.yml
+config/application.yml/public/packs
+/public/packs-test
+/node_modules
+config/application.yml

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ratio facturation:</strong>
+  <%= @devis_configuration.ratio_facturation %>
+</p>
+
+<p>
+  <strong>Tva:</strong>
+  <%= @devis_configuration.tva %>
+</p>
+
+<p>
+  <strong>Taux image:</strong>
+  <%= @devis_configuration.taux_image %>
+</p>
+
+<%= link_to 'Edit', edit_devis_configuration_path(@devis_configuration) %> |
+<%= link_to 'Back', devis_configurations_path %>

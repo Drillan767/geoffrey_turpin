@@ -1,5 +1,5 @@
-//= require jquery
+//= require jquery/dist/jquery.min.js
 //= require bootstrap
-//= require jquery_ujs
+//= require cocoon
+//= require @fengyuanchen/datepicker/dist/datepicker.js
 //= require script
-//= require_tree .

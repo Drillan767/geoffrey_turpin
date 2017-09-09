@@ -1,0 +1,19 @@
+<div class="nested-fields">
+  <%= f.select(:genre, [['Type A', 'Type A'],
+                       ['Type B', 'Type B'],
+                       ['Type C', 'Type C'],
+                       ['Type D', 'Type D'],
+                       ['Type E', 'Type E']
+  ],{ :prompt => 'Sélectionnez un type de musique'}
+      ) %>
+
+  <%= f.text_area :description, placeholder: 'Dites-en plus' %>
+
+  <%= f.label :image, 'Composé à l\'image' %>
+  <%= f.check_box :image %>
+
+  <%=f.label :deadline, 'Deadline personnalisée' %>
+
+  <%= link_to_remove_association 'Supprimer', f %>
+
+</div>

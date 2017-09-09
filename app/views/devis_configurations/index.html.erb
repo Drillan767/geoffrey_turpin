@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Devis Configurations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ratio facturation</th>
+      <th>Tva</th>
+      <th>Taux image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devis_configurations.each do |devis_configuration| %>
+      <tr>
+        <td><%= devis_configuration.ratio_facturation %></td>
+        <td><%= devis_configuration.tva %></td>
+        <td><%= devis_configuration.taux_image %></td>
+        <td><%= link_to 'Show', devis_configuration %></td>
+        <td><%= link_to 'Edit', edit_devis_configuration_path(devis_configuration) %></td>
+        <td><%= link_to 'Destroy', devis_configuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Devis Configuration', new_devis_configuration_path %>

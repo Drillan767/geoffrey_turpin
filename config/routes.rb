@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  # mount Ckeditor::Engine => '/ckeditor'
+  devise_for :users
+
+  resources :devis
+
   scope '(:locale)', :locale => /fr|en/ do
     root :to => 'pages#accueil'
 
@@ -15,8 +18,12 @@ Rails.application.routes.draw do
     post '/contact', to: 'contacts#create', as: :contacts
   end
 
+  get '/admin', to: 'pages#admin', as: :admin
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  authenticate :user do
+    scope '/admin' do
+      resources :devis_configurations, path: 'devis'
+    end
+  end
 
 end

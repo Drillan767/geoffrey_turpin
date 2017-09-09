@@ -1,0 +1,25 @@
+<%= form_with(model: @devi, local: true) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.text_field :nom, placeholder: 'Nom' %>
+    <%= f.text_field :prenom, placeholder: 'Prénom' %>
+    <%= f.text_field :email, placeholder: 'Adresse e-mail' %>
+
+    <div id="specs">
+      <%= f.fields_for :specs do |spec| %>
+        <%= render 'spec_fields', f: spec %>
+      <% end %>
+    </div>
+
+    <div class="links">
+      <%= link_to_add_association 'Nouvelle musique', f, :specs %>
+    </div>
+
+    <%= f.text_field :deadline, 'data-toggle' => 'datepicker', class: 'datepicker', placeholder: 'ex: ' + Date.today.strftime('%d/%m/%Y') %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

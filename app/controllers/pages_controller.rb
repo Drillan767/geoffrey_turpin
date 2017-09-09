@@ -1,23 +1,29 @@
 class PagesController < ApplicationController
 
+  before_action :authenticate_user!, only: :admin
+
   def accueil
-    @titre = "Accueil"
+    @titre = 'Accueil'
     render :layout => false
   end
 
   def musiques
-    @titre = "Musiques"
+    @titre = 'Musiques'
   end
 
   def biographie
-    @titre = "Biographie"
+    @titre = 'Biographie'
   end
 
   def mentions
-    @titre = "Mentions légales"
+    @titre = 'Mentions légales'
   end
 
   def mapping
-    @titre = "Plan du site"
+    @titre = 'Plan du site'
+  end
+
+  def admin
+    @titre = 'Administration'
   end
 end
