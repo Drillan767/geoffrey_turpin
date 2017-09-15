@@ -1,9 +1,33 @@
 <%= form_with(model: @devi, local: true) do |f| %>
+    <fieldset>
+      <div class="form-group col-md-12">
+        <!--<label class="col-md-4 control-label" for="textinput">Text Input</label>-->
+        <%= f.label :nom, class: 'col-md-4 control-label'%>
+        <div class="col-md-4">
+          <%= f.text_field :nom, placeholder: 'Nom', class: 'form-control input-md' %>
+        </div>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.label :prenom, class: 'col-md-4 control-label'%>
+        <div class="col-md-4">
+          <%= f.text_field :prenom, placeholder: 'Prénom', class: 'form-control input-md' %>
+        </div>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.label :email, 'Adresse e-mail', class: 'col-md-4 control-label'%>
+        <div class="col-md-4">
+          <%= f.text_field :email, placeholder: 'Adresse e-mail', class: 'form-control input-md' %>
+        </div>
+      </div>
+    </fieldset>
+
+    <br clear="all" />
 
   <div class="form-inputs">
-    <%= f.text_field :nom, placeholder: 'Nom' %>
-    <%= f.text_field :prenom, placeholder: 'Prénom' %>
-    <%= f.text_field :email, placeholder: 'Adresse e-mail' %>
+
+    <hr class="hr-top"/>
 
     <div id="specs">
       <%= f.fields_for :specs do |spec| %>
@@ -11,15 +35,41 @@
       <% end %>
     </div>
 
-    <div class="links">
-      <%= link_to_add_association 'Nouvelle musique', f, :specs %>
+    <div class="links col-md-4 col-md-offset-4 text-center">
+      <%= link_to_add_association 'Ajouter une nouvelle musique ?', f, :specs, class: 'form-button' %>
     </div>
 
-    <%= f.text_field :deadline, 'data-toggle' => 'datepicker', class: 'datepicker', placeholder: 'ex: ' + Date.today.strftime('%d/%m/%Y') %>
+    <br clear="all" />
 
+    <div class="form-group col-md-12">
+      <%= f.label :currency, 'Choix de la devise', class: 'col-md-4 control-label'%>
+      <div class="col-md-1">
+        <%= f.select :currency, ['€', '$', 'CHF'], {}, { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= f.label :deadline, 'Ajouter une deadline personnalisée ?', class: 'col-md-4 control-label' %>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon">
+              <input type="checkbox" class="if-deadline">
+          </span>
+          <%= f.text_field :deadline,
+                           'data-toggle' => 'datepicker',
+                           class: 'datepicker form-control',
+                           placeholder: 'ex: ' + Date.today.strftime('%d/%m/%Y'),
+                           value: "#{f.object.deadline.strftime('%d/%m/%Y') unless f.object.new_record?}",
+                           disabled: true
+          %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions col-md-offset-4 col-md-4">
+    <%= link_to '← Retour', root_path, class: 'form-button' %>
+
+    <%= f.submit 'Suivant →', class: 'form-button submit' %>
   </div>
 <% end %>

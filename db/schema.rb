@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902155139) do
+ActiveRecord::Schema.define(version: 20170913221252) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "titre"
@@ -47,28 +47,38 @@ ActiveRecord::Schema.define(version: 20170902155139) do
     t.string "email"
     t.string "status"
     t.decimal "price", precision: 8, scale: 2
-    t.decimal "decimal", precision: 8, scale: 2
+    t.string "currency"
+    t.string "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deadline"
   end
 
   create_table "devis_configurations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.decimal "ratio_facturation", precision: 10
-    t.decimal "tva", precision: 10
-    t.decimal "taux_image", precision: 10
+    t.decimal "ratio_facturation", precision: 8, scale: 2
+    t.decimal "tva", precision: 8, scale: 2
+    t.decimal "taux_image", precision: 8, scale: 2
+    t.decimal "deadline", precision: 8, scale: 2
+    t.decimal "per_new_music", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "deadline", precision: 10
-    t.decimal "per_new_music", precision: 10
+  end
+
+  create_table "musics_ratios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "music_genre"
+    t.decimal "ratio", precision: 8, scale: 2
+    t.integer "devis_configuration_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "specs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "genre"
-    t.integer "duree"
+    t.integer "minutes"
+    t.integer "secondes"
     t.text "description"
     t.boolean "image"
-    t.integer "devi_id"
+    t.string "devi_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

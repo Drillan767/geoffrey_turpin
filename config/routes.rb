@@ -2,19 +2,21 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :devis
+  scope '(:locale)', locale: /fr|en/ do
+    root to: 'pages#accueil'
 
-  scope '(:locale)', :locale => /fr|en/ do
-    root :to => 'pages#accueil'
+    get '/biographie', to: 'pages#biographie'
+    get '/musiques', to: 'pages#musiques'
+    get '/mentions_legales', to: 'pages#mentions'
+    get '/plan', to: 'pages#mapping'
 
-    match '/biographie', :to => 'pages#biographie', :via => [:get, :post]
-    match '/musiques', :to => 'pages#musiques', :via => [:get, :post]
-    match '/mentions_legales', :to => 'pages#mentions', :via => :get
-    match '/plan', :to => 'pages#mapping', :via => :get
+    # 'destroy', 'index' n'existent pas.
+    get '/devis/nouveau', to: 'devis#new', as: :devis_new
+    resources :devis, except: %i(destroy index new)
 
-    resources :article
+    # resources :article
 
-    get '/contact', to: 'contacts#new' , as: :new_contact
+    get '/contact', to: 'contacts#new', as: :new_contact
     post '/contact', to: 'contacts#create', as: :contacts
   end
 
@@ -22,7 +24,10 @@ Rails.application.routes.draw do
 
   authenticate :user do
     scope '/admin' do
-      resources :devis_configurations, path: 'devis'
+      resource :devis_configurations
+      get '/devis', to: 'admin_devis#index', as: :devis_index_admin
+      get '/devis/:status', to: 'admin_devis#status', as: :devis_status_admin
+      get '/devis/:session_id', to: 'admin_devis#show', as: :devis_show_admin
     end
   end
 

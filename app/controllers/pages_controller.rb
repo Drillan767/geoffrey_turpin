@@ -25,5 +25,14 @@ class PagesController < ApplicationController
 
   def admin
     @titre = 'Administration'
+
+    devis = Devi.all
+    @stat_devis = {
+      pending: devis.where(status: 'pending').count,
+      ongoing: devis.where(status: 'ongoing').count,
+      done: devis.where(status: 'done').count
+    }
+
+    @ratios = DevisConfiguration.first
   end
 end

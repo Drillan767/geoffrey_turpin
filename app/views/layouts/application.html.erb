@@ -23,7 +23,7 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller_name + ' ' + action_name %>">
   <div class="container-fluid">
   <header class="row header">
     <div class="col-md-1 header-logo">
@@ -44,7 +44,7 @@
         </div>
         <div class="col-xs-3 header-element">
           <div class="col-md-12 header-link">
-            <%= link_to 'Devis', new_devi_path %>
+            <%= link_to 'Devis', devis_new_path %>
           </div>
         </div>
         <div class="col-xs-3 header-element">

@@ -1,38 +1,36 @@
 class DevisController < ApplicationController
   before_action :set_devi, only: [:show, :edit, :update, :destroy]
 
-  # GET /devis
-  # GET /devis.json
   def index
     @devis = Devi.all
   end
 
-  # GET /devis/1
-  # GET /devis/1.json
   def show
+    @specs = Spec.find_by(devi_id: @devi.id)
   end
 
-  # GET /devis/new
   def new
+    @titre = 'Nouveau devis'
     @devi = Devi.new
     @devi.specs.build
+    @musics = DevisConfiguration.first.musics_ratios.all
   end
 
-  # GET /devis/1/edit
   def edit
+    @musics = DevisConfiguration.first.musics_ratios.all
   end
 
-  # POST /devis
-  # POST /devis.json
   def create
     @devi = Devi.new(devi_params)
 
     respond_to do |format|
 
-      abort params.inspect
+      @devi.price = set_price(devi_params)
+      @devi.status = 'created'
+      @devi.session_id = session.id.gsub(/[^\d]/, '').to_s
 
       if @devi.save
-        format.html { redirect_to @devi, notice: 'Devi was successfully created.' }
+        format.html { redirect_to @devi, notice: 'Devis créé avec succès' }
         format.json { render :show, status: :created, location: @devi }
       else
         format.html { render :new }
@@ -41,12 +39,17 @@ class DevisController < ApplicationController
     end
   end
 
-  # PATCH/PUT /devis/1
-  # PATCH/PUT /devis/1.json
   def update
     respond_to do |format|
       if @devi.update(devi_params)
-        format.html { redirect_to @devi, notice: 'Devi was successfully updated.' }
+
+        # a = 'truc-30'
+        #
+        # abort a.partition('-').first
+
+        @devi.price = set_price(devi_params)
+
+        format.html { redirect_to @devi, notice: 'Devis mis à jour' }
         format.json { render :show, status: :ok, location: @devi }
       else
         format.html { render :edit }
@@ -55,26 +58,26 @@ class DevisController < ApplicationController
     end
   end
 
-  # DELETE /devis/1
-  # DELETE /devis/1.json
   def destroy
     @devi.destroy
     respond_to do |format|
-      format.html { redirect_to devis_url, notice: 'Devi was successfully destroyed.' }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
 
+  def set_price(params)
+    return 4 + 4
+  end
+
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_devi
     @devi = Devi.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def devi_params
-    params.require(:devi).permit(:nom, :prenom, :email, :status,
-                                specs_attribute: %i[id genre description image deadline])
+    params.require(:devi).permit(:nom, :prenom, :email, :status, :session_id, :currency, :deadline,
+                                 specs_attributes: %i[id genre description image minutes secondes])
   end
 end

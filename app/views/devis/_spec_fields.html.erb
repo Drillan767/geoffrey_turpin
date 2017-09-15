@@ -1,19 +1,47 @@
 <div class="nested-fields">
-  <%= f.select(:genre, [['Type A', 'Type A'],
-                       ['Type B', 'Type B'],
-                       ['Type C', 'Type C'],
-                       ['Type D', 'Type D'],
-                       ['Type E', 'Type E']
-  ],{ :prompt => 'Sélectionnez un type de musique'}
-      ) %>
 
-  <%= f.text_area :description, placeholder: 'Dites-en plus' %>
+  <div class="form-group">
+    <div class="col-md-4 col-md-offset-4">
+      <%= f.select :genre, @musics.collect{
+          |m| [m.music_genre, m.music_genre + '-' + m.ratio.to_s]
+      }, {prompt: 'Sélectionnez un type de musique'}, {class: 'form-control'}  %>
+    </div>
+  </div>
 
-  <%= f.label :image, 'Composé à l\'image' %>
-  <%= f.check_box :image %>
+  <div class="form-group col-md-12 music-length">
+    <%= f.label :minutes, 'Durée de la composition', class: 'col-md-4 control-label' %>
+    <div class="col-md-4">
+      <%= f.number_field :minutes, min: 0, max: 60, class: 'form-control input-md', placeholder: 'Minutes' %>
+      <span>:</span>
+      <%= f.number_field :secondes, min: 0, max: 60, class: 'form-control input-md', placeholder: 'Secondes' %>
+    </div>
+  </div>
 
-  <%=f.label :deadline, 'Deadline personnalisée' %>
+  <div class="form-group">
+    <%= f.label :image, 'Composition à l\'image ?', class: 'col-md-4 control-label' %>
+    <div class="col-md-4">
+      <label class="switch">
+        <%= f.check_box :image %>
+        <span class="slider"></span>
+      </label>
+      <br clear="all" />
+    </div>
+  </div>
 
-  <%= link_to_remove_association 'Supprimer', f %>
+  <br clear="all" />
 
+  <div class="form-group">
+    <div class="col-md-4 col-md-offset-4">
+      <%= f.text_area :description, placeholder: 'Donnez plus de détails', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="nested-action col-md-4 col-md-offset-4">
+    <%= link_to_remove_association 'Supprimer', f, class: 'form-button' %>
+  </div>
+
+  <br clear="all" />
+
+  <hr class="hr-top"/>
 </div>
+

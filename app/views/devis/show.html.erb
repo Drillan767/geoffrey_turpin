@@ -1,24 +1,80 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @devi.nom %>
-</p>
+<p>Vous pouvez encore modifier votre devis avant de le soumettre. Si toutefois vous décidez d'annuler la demande,
+vous ne pourrez pas la récupérer.</p>
 
-<p>
-  <strong>Prenom:</strong>
-  <%= @devi.prenom %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>REFERENCE</th>
+      <th>DATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DEVIS-SGF-<%= @devi.id%></td>
+      <td><%= @devi.updated_at.strftime('%d-%m-%Y') %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Email:</strong>
-  <%= @devi.email %>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sélection</th>
+      <th>Description</th>
+      <th>Prix unitaire</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @specs.genre.partition('-').first %> - Durée : <%= @specs.minutes %>:<%= @specs.secondes %> -
+        <% if @specs.image %> Composition à l'image<% end %>
+        <% if @devi.deadline %>avec deadline définie (<%= @devi.deadline.strftime('%d/%m/%Y')%>) <% end %>
+      </td>
+      <td>
+        <%= @specs.description %>
+      </td>
+      <td>
+        <%= number_to_currency(0, unit: @devi.currency, format: '%n %u') %>
+      </td>
+      <td>
+        <%= number_to_currency(0, unit: @devi.currency, format: '%n %u') %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @devi.telephone %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Ratios</th>
+      <th>Valeur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Truc</td>
+      <td>10 boules</td>
+    </tr>
+    <tr>
+      <td>Truc</td>
+      <td>10 boules</td>
+    </tr>
+    <tr>
+      <td>Truc</td>
+      <td>10 boules</td>
+    </tr>
+    <tr>
+      <td>Truc</td>
+      <td>10 boules</td>
+    </tr>
 
-<%= link_to 'Edit', edit_devi_path(@devi) %> |
+  </tbody>
+</table>
+
+<%= link_to 'Modifier le devis', edit_devi_path(@devi) %>
+<a href="#">Soumettre le devis</a>
 <%= link_to 'Back', devis_path %>

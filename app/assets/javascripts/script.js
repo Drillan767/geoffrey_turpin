@@ -34,7 +34,9 @@ $(document).ready(function() {
         $(this).parent().css("margin-top", "")
     });
 
-    $('.datepicker').datepicker({
+    var datepicker = $('.datepicker');
+
+    datepicker.datepicker({
         format: 'dd/mm/yyyy',
         daysMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
         monthsShort: ['Janvier', 'Fevrier', 'Mars',
@@ -43,12 +45,16 @@ $(document).ready(function() {
             'Octobre', 'Novembre', 'Decembre']
     });
 
-    $('#specs').on('cocoon:after-insert', function(e, insertedItem) {
-        console.log(insertedItem);
+
+
+    $('.if-deadline').on('click', function() {
+       if(datepicker.prop('disabled')) {
+           console.log('ouais');
+           datepicker.prop('disabled', false);
+       } else {
+           datepicker.prop('disabled', true);
+       }
     });
-
-
-
 
 });
 

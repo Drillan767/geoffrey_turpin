@@ -15,10 +15,12 @@ class DevisConfigurationsController < ApplicationController
   # GET /devis_configurations/new
   def new
     @devis_configuration = DevisConfiguration.new
+    @devis_configuration.musics_ratios.build
   end
 
   # GET /devis_configurations/1/edit
   def edit
+    @devis_configuration.musics_ratios.build
   end
 
   # POST /devis_configurations
@@ -28,8 +30,8 @@ class DevisConfigurationsController < ApplicationController
 
     respond_to do |format|
       if @devis_configuration.save
-        format.html { redirect_to @devis_configuration, notice: 'Devis configuration was successfully created.' }
-        format.json { render :show, status: :created, location: @devis_configuration }
+        format.html { redirect_to admin_path, notice: 'Devis configuration was successfully created.' }
+        format.json { render :show, status: :created, location: admin_path }
       else
         format.html { render :new }
         format.json { render json: @devis_configuration.errors, status: :unprocessable_entity }
@@ -42,8 +44,8 @@ class DevisConfigurationsController < ApplicationController
   def update
     respond_to do |format|
       if @devis_configuration.update(devis_configuration_params)
-        format.html { redirect_to @devis_configuration, notice: 'Devis configuration was successfully updated.' }
-        format.json { render :show, status: :ok, location: @devis_configuration }
+        format.html { redirect_to admin_path, notice: 'Devis configuration was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_path }
       else
         format.html { render :edit }
         format.json { render json: @devis_configuration.errors, status: :unprocessable_entity }
@@ -65,11 +67,12 @@ class DevisConfigurationsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_devis_configuration
-    @devis_configuration = DevisConfiguration.find(params[:id])
+    @devis_configuration = DevisConfiguration.find(1)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def devis_configuration_params
-    params.require(:devis_configuration).permit(:ratio_facturation, :tva, :taux_image, :deadline, :per_new_music)
+    params.require(:devis_configuration).permit(:ratio_facturation, :tva, :taux_image, :deadline, :per_new_music,
+                    musics_ratios_attributes: [:id, :music_genre, :ratio])
   end
 end
