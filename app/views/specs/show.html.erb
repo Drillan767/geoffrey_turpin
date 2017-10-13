@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @spec.genre %>
+</p>
+
+<p>
+  <strong>Duree:</strong>
+  <%= @spec.duree %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @spec.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @spec.image %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @spec.deadline %>
+</p>
+
+<%= link_to 'Edit', edit_spec_path(@spec) %> |
+<%= link_to 'Back', specs_path %>

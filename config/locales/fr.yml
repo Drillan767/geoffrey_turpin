@@ -1,0 +1,171 @@
+fr:
+  active_admin:
+    time:
+      formats:
+        default: "%d/%m/%Y"
+        short: "%d %b"
+        long: "%d %B %Y"
+    dashboard: "Tableau de bord"
+    dashboard_welcome:
+      welcome: "Bienvenue dans Active Admin. Ceci est la page par défaut."
+      call_to_action: "Pour ajouter des sections au tableau de bord, consultez 'app/admin/dashboard.rb'"
+    view: "Voir"
+    edit: "Modifier"
+    delete: "Supprimer"
+    delete_confirmation: "Êtes-vous certain de vouloir supprimer ceci ?"
+    new_model: "Créer %{model}"
+    edit_model: "Modifier %{model}"
+    delete_model: "Supprimer %{model}"
+    details: "Détails de %{model}"
+    cancel: "Annuler"
+    empty: "Vide"
+    previous: "Précédent"
+    next: "Suivant"
+    download: "Télécharger :"
+    has_many_new: "Ajouter un nouveau %{model}"
+    has_many_delete: "Supprimer"
+    has_many_remove: "Enlever"
+    filters:
+      buttons:
+        filter: "Filtrer"
+        clear: "Supprimer les filtres"
+      predicates:
+        contains: "Contient"
+        equals: "Égal à"
+        starts_with: "Commence par"
+        ends_with: "Se termine par"
+        greater_than: "Plus grand que"
+        less_than: "Plus petit que"
+    search_status:
+      headline: "Statut de la recherche :"
+      current_scope: "Etendu du filtre :"
+      current_filters: "Filtres actuels :"
+      no_current_filters: "Aucun filtres"
+    status_tag:
+      "yes": "Oui"
+      "no": "Non"
+    main_content: "Veuillez implémenter %{model}#main_content pour afficher le contenu."
+    logout: "Déconnexion"
+    powered_by: "Propulsé par %{active_admin} %{version}"
+    sidebars:
+      filters: "Filtres"
+      search_status: "Statut de la recherche"
+    pagination:
+      empty: "Aucun %{model} trouvé"
+      one: "Affichage de <b>1</b> %{model}"
+      one_page: "Affichage des <b>%{n}</b> %{model}"
+      multiple: "Affichage de %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total de <b>%{total}</b>"
+      multiple_without_total: "Affichage de %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      entry:
+        one: "entrée"
+        other: "entrées"
+    any: "N'importe lequel"
+    blank_slate:
+      content: "Il n'y a pas encore de %{resource_name}."
+      link: "Créez en un"
+    dropdown_actions:
+      button_label: "Actions"
+    batch_actions:
+      button_label: "Actions groupées"
+      default_confirmation: "Êtes-vous sûr de vouloir faire cela ?"
+      delete_confirmation: "Êtes-vous sûr de vouloir supprimer ces %{plural_model} ?"
+      succesfully_destroyed:
+        one: "1 %{model} supprimé"
+        other: "%{count} %{plural_model} supprimés"
+      selection_toggle_explanation: "(Inverser la sélection)"
+      link: "Créer un"
+      action_label: "%{title} les éléments sélectionnés"
+      labels:
+        destroy: "Supprimer"
+    comments:
+      body: "Corps"
+      author: "Auteur"
+      title: "Commentaire"
+      add: "Ajouter un commentaire"
+      resource: "Ressource"
+      resource_type: "Type de ressource"
+      author_type: "Profil de l'auteur"
+      no_comments_yet: "Aucun commentaire actuellement"
+      title_content: "Commentaires (%{count})"
+      errors:
+        empty_text: "Le commentaire n'a pas été enregistré puisque le texte était vide."
+    devise:
+      username:
+        title: "Nom d'utilisateur"
+      email:
+        title: "Email"
+      subdomain:
+        title: "Sous-domaine"
+      password:
+        title: "Mot de passe"
+      login:
+        title: "Connexion"
+        remember_me: "Garder ma session ouverte"
+        submit: "Se connecter"
+      reset_password:
+        title: "Vous avez oublié votre mot de passe ?"
+        submit: "Réinitialiser mon mot de passe"
+      change_password:
+        title: "Changez votre mot de passe"
+        submit: "Changer mon mot de passe"
+      resend_confirmation_instructions:
+        title: "Renvoyer les instructions de confirmation"
+        submit: "Renvoyer les instructions de confirmation"
+      links:
+        sign_in: "Connectez-vous"
+        forgot_your_password: "Vous avez oublié votre mot de passe ?"
+        sign_in_with_omniauth_provider: "Connectez-vous avec %{provider}"
+    access_denied:
+      message: "Vous n'êtes pas autorisé à exécuter cette action"
+    index_list:
+      table: "Tableau"
+      block: "Liste"
+      grid: "Grille"
+      blog: "Blog"
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+  layout:
+    biographie: "Biographie"
+    musiques: "Musiques"
+    cgu: "Mentions légales"
+    plansite: "Plan du site"
+  accueil:
+    decouvre: "Découvrez"
+    ecoute: "Ecoutez"
+  biographie:
+    p1: "Issu d'une famille portée sur la peinture et le cinéma, Geoffrey commence l'étude de la musique avec la guitare classique en 2004."
+    p2: "Ses collaborations avec son frère Vincent Turpin, réalisateur, contribuent à enrichir son expérience de composition appliquée à l'image."
+    p3: "De nombreux projets, appliqués ou non à l'image, ont vu le jour, allant de compositions et d'interprétations au sein de groupes de style divers, d'arrangement pour d'autres artistes, mais surtout de compositions et de sound design pour l'image."
+    parcours: "Parcours"
+    asuivre: "À suivre"
+  musiques:
+    compoimage: "Composee pour l'image"
+    musiquepure: "Musique pure"
+    desc1: "Si vous êtes pressés, vous pouvez regarder ce petit florilège d'extraits de travaux récents et variés ! Changements réguliers."
+    desc2: |
+      Trailer du jeu vidéo d'action / stratégie inspiré librement du roman d'Alain Damasio "La Horde du Contrevent" paru en 2006. Avec la voix de Richard Darbois !
+
+      Disponible en téléchargement (Windows 7 ou plus) sur le site web : http://lahorde.comli.com/
+    desc3: 'Exercice de remise en musique du court métrage "Sang d''Encre".'
+    desc4: |+
+      Projet de cours – Motion Design pour Webimatics qui est une plateforme eTechSanté dans le domaine du cloud computing crée par l’université Lyon 1. En collaboration avec Deborah LAYANI pour la création de la chartre graphique
+
+      Site web d'Anaïs Gaudioz : http://anais-gaudioz.fr/
+    desc5: |+
+      Vidéo d'introduction du site du créateur WCK Production.
+
+      Site web de WCK Production : http://wcktom.wix.com/wckproduction
+    desc6: |
+      Projet de fin d'étude pour l'école Émile Cohl.
+      Page Facebook du Yohan Monange : https://www.facebook.com/yohan.monange
+    desc7: 'Voici quelques créations de "musique pure", c''est à dire créée sans image au préalabre. Quelques exercices de style !'
+  contact:
+    nom: "Nom"
+    email: "Email"
+    objet: "objet"
+    message: "Tapez votre message..."
+    submit: "Envoyer"

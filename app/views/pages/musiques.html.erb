@@ -1,0 +1,119 @@
+<div class="col-md-10 col-md-offset-1">
+<div id="carousel-example-generic" class="carousel slide">
+
+  <div class="col-md-offset-2 col-md-3 col-xs-5 col-xs-offset-1 submenu-shown submenu" data-target="#carousel-example-generic" data-slide-to="0" id="compoimage">
+    <p><%= t('musiques.compoimage')%></p>
+  </div>
+  <div class="col-md-offset-2 col-md-3 submenu col-xs-5 col-xs-offset-1" data-target="#carousel-example-generic" data-slide-to="1" id="compomusique">
+    <p><%= t('musiques.musiquepure')%></p>
+  </div>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <!-- Slide -->
+    <div class="item active">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="guf-title"><%= t('musiques.compoimage')%></h3>
+        </div>
+
+        <div class="image-block">
+          <div class="col-md-6 image-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VSGFH0knUtI" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="col-md-6 image-desc">
+            <p class="image-title">Sang d'Encre</p>
+            <p class="image-author">Tom Gouill - Jeoffrey Lavanche - Mélanie Tournois- 2012</p>
+            <p class="image-sbtitle">Musique symphonique et vocale</p>
+            <div class="image-content"><%= t('musiques.desc3') %></div>
+          </div>
+        </div>
+
+        <div class="image-block"> <!-- Copie-colle ça pour avoir le modèle de base à modifier ensuite-->
+          <div class="col-md-6 image-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ckHvf1YMUJM" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="col-md-6 image-desc">
+            <p class="image-title">Démo fin 2015</p>
+            <p class="image-author">Geoffrey Turpin - 11/2015</p>
+            <p class="image-sbtitle"> </p>
+            <div class="image-content"><%= t('musiques.desc1') %></div>
+          </div>
+        </div>
+
+        <div class="image-block">
+          <div class="col-md-6 image-video" style="margin-top: 17px">
+            <iframe src="https://player.vimeo.com/video/164628449" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <p>
+          </div>
+          <div class="col-md-6 image-desc">
+            <p class="image-title">La Horde</p>
+            <p class="image-author">Gamagora - 29/04/2016</p>
+            <p class="image-sbtitle">Musique symphonique et vocale, sound design et intégration (Unreal Engine 4)</p>
+            <div class="image-content"><%= simple_format(t('musiques.desc2')) %></div>
+          </div>
+        </div>
+
+        <div class="image-block">
+          <div class="col-md-6 image-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/nMIHsv72ld0" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="col-md-6 image-desc">
+            <p class="image-title">Webimatics</p>
+            <p class="image-author">Anaïs Gaudioz - 03/2016</p>
+            <p class="image-sbtitle">Musique type "publicité" orchestral </p>
+            <div class="image-content"><%= simple_format(t('musiques.desc4')) %></div>
+          </div>
+        </div>
+
+        <div class="image-block">
+          <div class="col-md-6 image-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Hztl5DjjQ4c" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="col-md-6 image-desc">
+            <p class="image-title">Web book</p>
+            <p class="image-author">WCK Production - 04/2016</p>
+            <p class="image-sbtitle">Musique électro / ambiant / experimental </p>
+            <div class="image-content"><%= simple_format(t('musiques.desc5')) %></div>
+          </div>
+        </div>
+
+        <div class="image-block">
+          <div class="col-md-6 image-video">
+            <iframe src="https://player.vimeo.com/video/132071923" width="640" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <p>
+              <a href="https://vimeo.com/132071923">TEASER JEU-VIDEO : Yohan Monange &quot;La Tombe du Typhon&quot;</a>
+              de <a href="https://vimeo.com/cohl">Ecole Emile Cohl</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+          </div>
+          <div class="col-md-6 image-desc">
+            <p class="image-title">La Tombe du Typhon</p>
+            <p class="image-author">Yohan Monange - 03/2016</p>
+            <p class="image-sbtitle">Musique symphonique, vocale et électronique et sound design </p>
+            <div class="image-content"><%= simple_format(t('musiques.desc6')) %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Switch "musique pure" -->
+    <div class="item">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="guf-title"><%= t('musiques.musiquepure')%></h3>
+        </div>
+        <div class="music-block">
+          <div class="music-embed">
+            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/172592426&amp;color=004703&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+          </div>
+          <div class="music-desc">
+            <p>
+              <%= t('musiques.desc7') %>
+            </p>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!--/#wrapper -->
+<br clear="all" />

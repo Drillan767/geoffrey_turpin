@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title><%= titre %></title>
+  <%= stylesheet_link_tag 'bootstrap.min', 'style', media: 'all', 'data-turbolinks-track' => true %>
+
+ <!-- SEO -->
+  <meta name="description" content="Compositeur, musicien et artiste">
+  <meta name="keywords" content="Geoffrey Turpin, compositeur, musicien, interprete, guitariste, jeux vidéos, Lyon">
+  <meta property="og:site_name" content="Geoffrey Turpin" />
+  <meta property="og:title" content="<%= titre %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.geoffreyturpin.fr/" />
+  <meta property="og:image" content="http://geoffreyturpin.fr/img/guitare.jpg" />
+  <meta property="og:description" content="Compositeur de musiques de films, jeux vidéos et pure" >
+  <meta name="generator" content="Rubymine 2016.1">
+  <meta name="geo.region" content="FR" />
+  <meta name="geo.placename" content="Lyon" />
+
+  <meta content="jd.levarato@gmail.com" name="dc.creator">
+  <meta content="2016" name="dc.date">
+
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller_name + ' ' + action_name %>">
+  <div class="container-fluid">
+  <header class="row header">
+    <div class="col-md-1 header-logo">
+      <%= link_to(image_tag('logo'), '/')%>
+    </div>
+
+    <div class="col-md-offset-1 col-md-8">
+      <div class="row">
+        <div class="col-xs-3 header-element">
+          <div class="col-md-12 header-link">
+          <%= link_to(t('layout.biographie'), '/biographie') %>
+          </div>
+        </div>
+        <div class="col-xs-3 header-element">
+          <div class="col-md-12 header-link">
+            <%= link_to(t('layout.musiques'), '/musiques') %>
+          </div>
+        </div>
+        <div class="col-xs-3 header-element">
+          <div class="col-md-12 header-link">
+            <%= link_to 'Devis', devis_new_path %>
+          </div>
+        </div>
+        <div class="col-xs-3 header-element">
+          <div class="col-md-12 header-link">
+            <%= link_to('Contact', '/contact') %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-2 header-share">
+      <%= link_to image_tag('facebook'), 'https://www.facebook.com/GeoffreyTurpinCompositeur', target: '_blank' %>
+      <%= link_to image_tag('youtube'), 'https://www.youtube.com/channel/UC6goSAztM5jbRY9k735hqZQ', target: '_blank' %>
+      <%= link_to image_tag('linkedin'), 'https://fr.linkedin.com/in/geoffrey-turpin-a89129ab', target: '_blank' %>
+
+    </div>
+  </header>
+  <hr class="hr-top">
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% elsif alert %>
+    <div class="alert alert-danger"><%= alert %></div>
+  <% end %>
+
+
+<%= yield %>
+
+<!--footer-->
+  <hr class="hr-bottom">
+  <footer class="row footer">
+    <div class="col-md-2 ">
+      <p class="footer-address">06.72.44.40.45</p>
+      <p class="footer-address">turpin-geoffrey@live.fr</p>
+    </div>
+    <div class="col-md-2 col-md-offset-6 footer-link">
+      <%= link_to(t('layout.cgu'), '/mentions_legales')%>
+    </div>
+    <div class="col-md-1 footer-link">
+      <%= link_to(t('layout.plansite'), '/plan')%>
+    </div>
+    <div class="col-md-1 footer-link">
+      <% if I18n.locale == :en %>
+          <%= link_to('Français', locale: :fr) %>
+
+      <% else I18n.locale == :fr %>
+          <%= link_to('English', locale: :en) %>
+      <% end %>
+    </div>
+  </footer>
+    <%= javascript_include_tag 'application' %>
+    <% if I18n.locale == :en %>
+      <%= javascript_include_tag 'bio_en' %>
+    <% else I18n.locale == :fr %>
+      <%= javascript_include_tag 'bio_fr' %>
+    <% end %>
+  </div>
+</body>
+</html>

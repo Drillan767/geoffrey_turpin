@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ratio_facturation: 9.99
+  tva: 9.99
+  taux_image: 9.99
+
+two:
+  ratio_facturation: 9.99
+  tva: 9.99
+  taux_image: 9.99

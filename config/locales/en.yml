@@ -1,0 +1,51 @@
+en:
+  layout:
+    biographie: "Biography"
+    musiques: "Musics"
+    cgu: "CGU"
+    plansite: "Sitemap"
+  accueil:
+    decouvre: "Discover"
+    ecoute: "Listen"
+  biographie:
+    p1: "Coming from a family focused on painting and cinema, Geoffrey began studying music with the classical guitar in 2004."
+    p2: "His collaborations with his brother Vincent Turpin, director, contribute to enrich his composition experience applied to the image."
+    p3: "Many projects, applied or not to the image, were created, ranging from compositions and interpretations in various style groups, arranging for other artists, but especially of compositions and sound design for the image."
+    parcours: "Journey"
+    asuivre: "To be continued"
+  musiques:
+    compoimage: "Composed for the image"
+    musiquepure: "Pure music"
+    desc1: "If you are in a hurry, you can watch this small anthology of excerpts from recent and varied work! Regular changes."
+
+    desc2: |
+      symphonic and vocal music, sound design and integration (Unreal Engine 4)
+
+        Trailer from the action / strategy videogame freely inspired from Alain Damasio's book, "The WindWalkers", released in 2006. With Richard Darbois's voice!
+
+          Available for download (Windows 7+) on the website: http://lahorde.comli.com/
+    desc3: 'Composition exercice on the short film "Sang d''Encre".'
+    desc4: |+
+      School project - Motion design for Webimatics, an eTechSanté platform in the cloud computing domain, created by the Lyon I university. In collaboration with Deborah Layant for the graphic chart creation
+
+      Anaïs Gaudioz' website: http://anais-gaudioz.fr/
+    desc5: |+
+      Electro music / ambiant / experimental
+
+
+      Video introduction of the site of the WCK Production creator .
+
+      WCK Production's website: http://wcktom.wix.com/wckproduction
+    desc6: |
+      Symphonic, vocal and electronic, and sound design music
+
+      Final project study for the Emile Cohl school .
+
+      Yohan Monange's Facebook page: https://www.facebook.com/yohan.monange
+    desc7: 'Here are a few "pure music" creations, that is created without any image beforehand. Some style exercises!'
+  contact:
+    nom: "Name"
+    email: "Email"
+    objet: "Object"
+    message: "Your message here..."
+    submit: "Submit"

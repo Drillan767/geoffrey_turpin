@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h3 class="guf-title">Administration</h3>
+
+    <div class="col-md-6">
+      <h3>Suivi des devis</h3>
+      <table class="table">
+        <tbody>
+        <tr>
+          <td>Nouveaux devis</td>
+          <td>
+            <span class="badge">
+              <%= @stat_devis[:pending] %>
+            </span>
+          </td>
+          <td>
+            <%= link_to 'Voir', devis_status_admin_path(status: 'pending') %></td>
+        </tr>
+        <tr>
+          <td>Compositions en cours</td>
+          <td><%= @stat_devis[:ongoing] %></td>
+          <td><%= link_to 'Voir', devis_status_admin_path(status: 'ongoing') %></td>
+        </tr>
+        <tr>
+          <td>Compositions terminées</td>
+          <td><%= @stat_devis[:done] %></td>
+          <td><%= link_to 'Voir', devis_status_admin_path(status: 'done') %></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= link_to 'Tout voir', devis_status_admin_path(status: 'all'), class: 'form-button' %>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+      <h3>Résumé des ratios</h3>
+      <% if @ratios %>
+          <table class="table">
+            <tbody>
+            <tr>
+              <td>Facturation à la seconde (de base)</td>
+              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
+            </tr>
+            <tr>
+              <td>TVA</td>
+              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
+            </tr>
+            <tr>
+              <td>Taux si composition à l'image</td>
+              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
+            </tr>
+            <tr>
+              <td>taux si deadline</td>
+              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
+            </tr>
+            <tr>
+              <td>Multiplicateur par nouvelle musique</td>
+              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
+            </tr>
+            <% @ratios.musics_ratios.each do |m| %>
+                <tr>
+                  <td><%= m.music_genre %></td>
+                  <td><%= number_to_currency(m.ratio, unit: '€', format: '%n %u') %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <%= link_to 'Modifier', edit_devis_configurations_path, class: 'form-button' %>
+          </div>
+
+
+      <% else %>
+          <div class="text-center">
+            <h4>Aucun ratio enregistré pour le moment</h4>
+            <%= link_to 'Nouveaux ratios', new_devis_configurations_path, class: 'form-button' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

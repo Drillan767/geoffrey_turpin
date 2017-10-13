@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@fengyuanchen/datepicker": "github:fengyuanchen/datepicker",
+    "@rails/webpacker": "^3.0.0",
+    "babel-preset-react": "^6.24.1",
+    "datatables.net": "^1.10.16",
+    "datatables.net-dt": "^1.10.16",
+    "jquery": "^2.2.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.7.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "font-awesome": "^4.7.0"
+  }
+}

@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <p>Vous pouvez encore modifier votre devis avant de le soumettre. Si toutefois vous décidez d'annuler la demande,
+      vous ne pourrez pas la récupérer.</p>
+
+    <div class="col-md-3">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>REFERENCE</th>
+          <th>DATE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>DEVIS-SGF-<%= @devi.id%></td>
+          <td><%= @devi.updated_at.strftime('%d-%m-%Y') %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Sélection</th>
+        <th>Informations complémentaires</th>
+        <th>Prix unitaire</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @devi.specs.each do |spec| %>
+          <tr>
+            <td>
+              <%= spec.genre.partition('-').first %> - Durée : <%= spec.minutes %>:<%= spec.secondes %> -
+              <% if spec.image %> Composition à l'image<% end %>
+              <% if @devi.deadline %>avec deadline définie (<%= @devi.deadline.strftime('%d/%m/%Y')%>) <% end %>
+            </td>
+            <td>
+              <%= spec.description %>
+            </td>
+            <td>
+              <%= number_to_currency(0, unit: @devi.currency, format: '%n %u') %>
+            </td>
+            <td>
+              <%= number_to_currency(0, unit: @devi.currency, format: '%n %u') %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <div class="col-md-3 pull-right">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Ratios</th>
+          <th>Valeur</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Truc</td>
+          <td>10 boules</td>
+        </tr>
+        <tr>
+          <td>Truc</td>
+          <td>10 boules</td>
+        </tr>
+        <tr>
+          <td>Truc</td>
+          <td>10 boules</td>
+        </tr>
+        <tr>
+          <td>Truc</td>
+          <td>10 boules</td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <br clear="all" />
+
+    <div class="form-action text-center">
+      <%= link_to '← Annuler', root_path, class: 'form-button' %>
+      <%= link_to edit_devi_path(@devi), class: 'form-button' do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>  Modifier le devis
+      <% end %>
+
+      <%= link_to 'Soumettre le devis →', devis_envoi_path(@devi.id), class: 'form-button' %>
+    </div>
+  </div>
+</div>

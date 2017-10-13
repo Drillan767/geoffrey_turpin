@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Nouveau devis</title>
+  <style>
+    a {
+      background-color: #000;
+      color: #fff;
+      padding: 0.5em;
+
+    }
+  </style>
+</head>
+<body>
+<h1>Nouveau devis</h1>
+
+<p>
+  <%= devis.prenom %> <%= devis.nom %> <%= mail_to devis.email %> a demandé un devis
+  une composition dont voici les détails : <br />
+</p>
+
+<% devis.specs.each do |spec| %>
+    <p>
+      <%= spec.genre.partition('-').first %> d'une durée de <%= spec.minutes %>:<%= spec.secondes %>. <br />
+      Ce projet <% if spec.image %> <b>est</b> <% else %> <b>n'est pas</b> <% end %> une composition à l'image.<br />
+    </p>
+    <p>
+      Pour ce projet, <%= devis.prenom %> <%= devis.nom %> a indiqué : <br />
+      <%= simple_format(spec.description) %>
+    </p>
+<% end %>
+
+<p>
+  <% if devis.specs.count > 1 %>Pour ce projet<% else %>Pour l'ensemble de ces projets<% end %>,
+  <%= devis.prenom %> <%= devis.nom %>
+  <% if devis.deadline %>
+      a défini le <%= devis.deadline.strftime('%d/%m/%Y') %> comme deadline.
+  <% else %>
+      n'a pas défini de deadline.
+  <% end %>
+</p>
+
+
+</body>
+</html>

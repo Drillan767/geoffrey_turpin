@@ -1,0 +1,18 @@
+<div class="row show-article">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="sarticle-arrow">
+      <!--<%= link_to(content_tag(image_tag('fleche.png') + :span, 'Retour à la liste'), '/articles')  %>-->
+      <%= link_to(image_tag('fleche.png') + content_tag(:span, 'Retour à la liste'), '/articles') %>
+
+    </div>
+    <h1 class="guf-title"><%= @article.titre %></h1>
+    <h3 class="sarticle-date">Le <%=@article.created_at.strftime("%d/%m/%Y") %></h3>
+
+    <div class="sarticle-block">
+      <%= image_tag(@article.image.url)%>
+      <p class="sarticle-content">
+        <%= simple_format(@article.contenu) %>
+      </p>
+    </div>
+  </div>
+</div>
