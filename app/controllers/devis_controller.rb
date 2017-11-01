@@ -67,7 +67,27 @@ class DevisController < ApplicationController
   end
 
   def set_price(params)
-    return 4 + 4
+
+    config = DevisConfiguration.first
+    result = 0
+    index = 0
+
+    params[:specs_attributes].each do |i, spec|
+      # Calcul du coût de la musique par rapport à sa longueur
+      taux_seconde = spec[:genre].partition('-').last * config.ratio_facturation.to_i
+      result += (((spec[:minutes].to_i * 60).to_i + spec[:secondes].to_i).to_i * taux_seconde.to_i).to_i
+      result *= config.taux_image if spec[:image].to_i == 1
+
+      index += 1
+    end
+
+    # Calcul du coût par nouvelle musique s'il y en a plus d'une
+    result *= config.per_new_music.to_i if index > 0
+    # Calcul du bonus de deadline si elle a été définie
+    result *= config.deadline unless params[:deadline].blank?
+
+    return result
+
   end
 
   private
