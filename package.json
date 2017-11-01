@@ -3,6 +3,8 @@
     "@fengyuanchen/datepicker": "github:fengyuanchen/datepicker",
     "@rails/webpacker": "^3.0.0",
     "babel-preset-react": "^6.24.1",
+    "datatables.net": "^1.10.16",
+    "datatables.net-dt": "^1.10.16",
     "jquery": "^2.2.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

@@ -1,5 +1,5 @@
 class DevisConfigurationsController < ApplicationController
-  before_action :set_devis_configuration, only: [:show, :edit, :update, :destroy]
+  before_action :set_devis_configuration, only: %w[:show :edit :update :destroy]
 
   # GET /devis_configurations
   # GET /devis_configurations.json

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # WickedPDF Global Configuration
 #
 # Use this to set up shared configuration options for your entire application.
@@ -18,4 +19,10 @@ WickedPdf.config = {
   # Layout file to be used for all PDFs
   # (but can be overridden in `render :pdf` calls)
   # layout: 'pdf.html',
+=======
+# https://github.com/mileszs/wicked_pdf/blob/master/README.md
+
+WickedPdf.config = {
+  exe_path: '/usr/local/bin/wkhtmltopdf'
+>>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
 }

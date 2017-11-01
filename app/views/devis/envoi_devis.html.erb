@@ -1,0 +1,11 @@
+<h3 class="guf-title text-center">Envoi du devis avec succes</h3>
+
+<h3 class="text-center">Votre devis a été envoyé à Geoffrey Turpin. </h3>
+<p class="text-center">Geoffrey Turpin vous contactera prochainement afin que vous puissiez
+vous mettre d'accord sur les termes du projet</p>
+
+<br />
+
+<div class="text-center">
+  <%= link_to 'Imprimer le devis', devis_pdf_path(@devi.id, format: :pdf), class: 'form-button' %>
+</div>

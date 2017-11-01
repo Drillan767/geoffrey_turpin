@@ -7,9 +7,15 @@
 <h3>Nouveau contact depuis le site !</h3>
 
 <p><b>Nom : </b> <%= message.nom %></p>
+<<<<<<< HEAD
 <p><b>Nom : </b> <%= mail_to message.email, message.email %></p>
 <p><b>Nom : </b> <%= message.objet %></p>
 <p><b>Nom : </b><br /> <%= simple_format(message.message) %></p>
+=======
+<p><b>Email : </b> <%= mail_to message.email, message.email %></p>
+<p><b>Objet : </b> <%= message.objet %></p>
+<p><b>Message : </b><br /> <%= simple_format(message.message) %></p>
+>>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
 
 </body>
 </html>

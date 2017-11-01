@@ -1,5 +1,6 @@
 /*
  *= require @fengyuanchen/datepicker/dist/datepicker.css
+ *= require datatables.net-dt/css/jquery.dataTables.css
  *= require font-awesome/css/font-awesome.min.css
  *= require devis
  */
@@ -417,7 +418,7 @@
 /* Devis */
 
 .devis {
-  &.new {
+  &.new, &.edit {
     form {
       .form-group {
         label {
@@ -525,6 +526,12 @@
     }
   }
 
+  &.show {
+    .form-action a:nth-child(2) {
+      margin: 0 10px;
+    }
+  }
+
   .form-button {
     padding: 2.5%;
     background-color: #000;
@@ -545,6 +552,7 @@
       text-decoration: none;
     }
   }
+
 
   .form-actions {
     display: flex;
@@ -602,6 +610,30 @@
 .footer-link a:hover {
   color: #000;
   text-decoration: none;
+}
+
+.form-button {
+  padding: 0.5em;
+  background-color: #000;
+  font-family: "Simplifica", sans-serif;
+  font-size: 22px;
+  color: white;
+  border: none;
+
+  &.new-music {
+    padding: 0.5%;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &.active {
+    border: solid 1px;
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {

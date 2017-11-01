@@ -16,7 +16,6 @@ $(document).ready(function() {
 
     });
 
-
     //Script pour le header
     //Définir sur quelle page on est
     var currentURL = document.location.href;
@@ -45,8 +44,6 @@ $(document).ready(function() {
             'Octobre', 'Novembre', 'Decembre']
     });
 
-
-
     $('.if-deadline').on('click', function() {
        if(datepicker.prop('disabled')) {
            console.log('ouais');
@@ -55,7 +52,36 @@ $(document).ready(function() {
            datepicker.prop('disabled', true);
        }
     });
+    if($('body').is('.admin_devis, .status')) {
+        $('#status').DataTable(
+            {
+                "oLanguage": {
+                    "sProcessing":     "Traitement en cours...",
+                    "sSearch":         "Rechercher :",
+                    "sLengthMenu":     "Afficher _MENU_ éléments",
+                    "sInfo":           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
+                    "sInfoEmpty":      "Affichage de l'élément 0 à 0 sur 0 élément",
+                    "sInfoFiltered":   "(filtré de _MAX_ éléments au total)",
+                    "sInfoPostFix":    "",
+                    "sLoadingRecords": "Chargement en cours...",
+                    "sZeroRecords":    "Aucun élément à afficher",
+                    "sEmptyTable":     "Aucune donnée disponible dans le tableau",
+                    "oPaginate": {
+                        "sFirst": "Premier",
+                        "sPrevious": "Précédent",
+                        "sNext": "Suivant",
+                        "sLast": "Dernier"
+                    }
+                }
+            }
+        );
+    }
 
+    else if($('body').is('.admin_devis, .show')) {
+        $('#confirmer').on('click', function(e) {
+            e.preventDefault();
+            $('#update').modal('toggle');
+        })
+    }
 });
-
 

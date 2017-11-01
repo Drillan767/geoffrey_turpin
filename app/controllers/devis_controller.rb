@@ -1,12 +1,17 @@
 class DevisController < ApplicationController
-  before_action :set_devi, only: [:show, :edit, :update, :destroy]
+  before_action :set_devi, only: %w[:show :edit :update :destroy :envoi_devis :print_devis]
 
   def index
     @devis = Devi.all
   end
 
   def show
-    @specs = Spec.find_by(devi_id: @devi.id)
+    if cookies[:session_id]
+      @titre = 'Devis SGF-' + @devi.id.to_s
+      @specs = Spec.find_by(devi_id: @devi.id)
+    else
+      redirect_to new_devi_path, alert: 'Devis introuvable'
+    end
   end
 
   def new
@@ -17,6 +22,12 @@ class DevisController < ApplicationController
   end
 
   def edit
+    if cookies[:session_id]
+      @specs = Spec.find_by(devi_id: @devi.id)
+      @titre = 'Editer le devis SGF-' + @devi.id.to_s
+    else
+      redirect_to biographie_path, alert: "Vous ne pouvez plus modifier votre demande de devis ou vous n'avez pas le droit d'y accéder"
+    end
     @musics = DevisConfiguration.first.musics_ratios.all
   end
 
@@ -27,9 +38,12 @@ class DevisController < ApplicationController
 
       @devi.price = set_price(devi_params)
       @devi.status = 'created'
-      @devi.session_id = session.id.gsub(/[^\d]/, '').to_s
+      @devi.session_id = session.id
 
       if @devi.save
+
+        cookies[:session_id] = { value: session.id, expires: 1.day.from_now }
+
         format.html { redirect_to @devi, notice: 'Devis créé avec succès' }
         format.json { render :show, status: :created, location: @devi }
       else
@@ -87,7 +101,31 @@ class DevisController < ApplicationController
     result *= config.deadline unless params[:deadline].blank?
 
     return result
+  end
 
+  def envoi_devis
+    if cookies[:session_id] && @devi.status == 'created' ||
+       cookies[:session_id] && @devi.status == 'pending'
+      @titre = 'Devis envoyé'
+      # unless @devi.status == 'created'
+        ContactMailer.new_devis_notification(@devi).deliver
+        @devi.update!(status: 'pending')
+      # end
+
+    else
+      redirect_to biographie_path, alert: "Vous ne pouvez plus modifier votre demande de devis ou vous n'avez pas le droit d'y accéder"
+    end
+  end
+
+  def print_devis
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'print_devis',
+               template: 'devis/print_devis.html.erb',
+               disposition: 'attachment'
+      end
+    end
   end
 
   private
