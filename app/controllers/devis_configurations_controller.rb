@@ -1,5 +1,5 @@
 class DevisConfigurationsController < ApplicationController
-  before_action :set_devis_configuration, only: %w[:show :edit :update :destroy]
+  before_action :set_devis_configuration, only: %i[show edit update destroy]
 
   # GET /devis_configurations
   # GET /devis_configurations.json
@@ -20,7 +20,8 @@ class DevisConfigurationsController < ApplicationController
 
   # GET /devis_configurations/1/edit
   def edit
-    @devis_configuration.musics_ratios.build
+    @devis_configuration = DevisConfiguration.find(1)
+    @titre = 'Modification des taux du devis'
   end
 
   # POST /devis_configurations

@@ -1,38 +1,57 @@
-<%= form_for(@devis_configuration, url: devis_configurations_path) do |f| %>
+<%= form_for(@devis_configuration, url: devis_configurations_path, html: {class: 'form-horizontal' }) do |f| %>
+  <fieldset>
 
-  <div class="form-inputs">
-    <div>
-      <%= f.label :ratio_facturation, 'Prix de la musique à la seconde' %>
-      <%= f.text_field :ratio_facturation %>
+    <div class="form-group">
+      <%= f.label :ratio_facturation, 'Prix de la musique à la seconde', class: 'col-md-4 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :ratio_facturation, class: 'form-control input-md' %>
+      </div>
     </div>
-    <div>
-      <%= f.label :tva, 'TVA' %>
-      <%= f.text_field :tva %>
+
+    <div class="form-group">
+      <%= f.label :tva, 'TVA', class: 'col-md-4 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :tva, class: 'form-control input-md' %>
+      </div>
     </div>
-    <div>
-      <%= f.label :taux_image, 'Taux pour composition à l\'image' %>
-      <%= f.text_field :taux_image %>
+
+    <div class="form-group">
+      <%= f.label :taux_image, 'Taux pour composition à l\'image', class: 'col-md-4 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :taux_image, class: 'form-control input-md' %>
+      </div>
     </div>
-    <div>
-      <%= f.label :deadline, 'Bonus par nouvelle musique demandé' %>
-      <%= f.text_field :deadline %>
+
+    <div class="form-group">
+      <%= f.label :deadline, 'Bonus par nouvelle musique demandé', class: 'col-md-4 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :deadline, class: 'form-control input-md' %>
+      </div>
     </div>
-    <div>
-      <%= f.label :per_new_music, 'Bonus pour une musique supplémentaire' %>
-      <%= f.text_field :per_new_music %>
+
+    <div class="form-group">
+      <%= f.label :per_new_music, 'Bonus pour une musique supplémentaire', class: 'col-md-4 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :per_new_music, class: 'form-control input-md' %>
+      </div>
     </div>
+
     <div id="musics_ratios">
       <%= f.fields_for :musics_ratios do |music_ratio| %>
-        <%= render 'musics_ratio_fields', f: music_ratio %>
-
+          <%= render 'musics_ratio_fields', f: music_ratio %>
       <% end %>
     </div>
-    <div class="links">
-      <%= link_to_add_association 'Nouveau genre', f, :musics_ratios %>
-    </div>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <br />
+    <div class="links text-center">
+      <%= link_to_add_association '+ Nouveau genre', f, :musics_ratios, class: 'form-button' %>
+    </div>
+
+    <div class="form-actions">
+      <%= link_to '← Retour', admin_path, class: 'form-button' %>
+      <%= f.submit 'Enregistrer', class: 'form-button' %>
+    </div>
+
+  </fieldset>
+
 <% end %>
