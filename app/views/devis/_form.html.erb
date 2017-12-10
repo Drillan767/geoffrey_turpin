@@ -59,11 +59,7 @@
                            'data-toggle' => 'datepicker',
                            class: 'datepicker form-control',
                            placeholder: 'ex: ' + Date.today.strftime('%d/%m/%Y'),
-<<<<<<< HEAD
-                           value: "#{f.object.deadline.strftime('%d/%m/%Y') unless f.object.new_record?}",
-=======
                            value: "#{f.object.deadline.strftime('%d/%m/%Y') if f.object.deadline unless f.object.new_record?}",
->>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
                            disabled: true
           %>
         </div>

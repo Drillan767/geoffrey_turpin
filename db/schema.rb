@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170913221252) do
-=======
 ActiveRecord::Schema.define(version: 20170910015028) do
->>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "titre"
@@ -50,19 +46,13 @@ ActiveRecord::Schema.define(version: 20170910015028) do
     t.string "prenom"
     t.string "email"
     t.string "status"
-<<<<<<< HEAD
-=======
+    t.boolean "email_sent"
     t.datetime "deadline"
->>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
     t.decimal "price", precision: 8, scale: 2
     t.string "currency"
     t.string "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.datetime "deadline"
-=======
->>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
   end
 
   create_table "devis_configurations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

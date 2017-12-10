@@ -1,73 +1,3 @@
-<<<<<<< HEAD
-<h1>Administration</h1>
-
-<div class="devis-lookup">
-  <h3>Suivi des devis</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td>Nouveaux devis</td>
-        <td><%= @stat_devis[:pending] %></td>
-        <td><a href="#">Voir</a></td>
-      </tr>
-      <tr>
-        <td>Compositions en cours</td>
-        <td><%= @stat_devis[:ongoing] %></td>
-        <td><a href="#">Voir</a></td>
-      </tr>
-      <tr>
-        <td>Compositions terminées</td>
-        <td><%= @stat_devis[:done] %></td>
-        <td><a href="#">Voir</a></td>
-      </tr>
-    </tbody>
-  </table>
-  <a href="#">Tout voir</a>
-</div>
-
-<div class="ratio-lookup">
-  <h3>Résumé des ratios</h3>
-  <% if @ratios %>
-  <table>
-    <tbody>
-      <tr>
-        <td>Facturation à la seconde (de base)</td>
-        <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-      </tr>
-      <tr>
-        <td>TVA</td>
-        <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-      </tr>
-      <tr>
-        <td>Taux si composition à l'image</td>
-        <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-      </tr>
-      <tr>
-        <td>taux si deadline</td>
-        <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-      </tr>
-      <tr>
-        <td>Multiplicateur par nouvelle musique</td>
-        <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-      </tr>
-      <% @ratios.musics_ratios.each do |m| %>
-        <tr>
-          <td><%= m.music_genre %></td>
-          <td><%= number_to_currency(m.ratio, unit: '€', format: '%n %u') %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Modifier', edit_devis_configurations_path %>
-
-  <% else %>
-    <div>
-      <h4>Aucun ratio enregistré pour le moment</h4>
-      <%= link_to 'Nouveaux ratios', new_devis_configurations_path %>
-    </div>
-  <% end %>
-</div>
-=======
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <h3 class="guf-title">Administration</h3>
@@ -151,5 +81,3 @@
     </div>
   </div>
 </div>
-
->>>>>>> af150ea9eb2ffb2b6ede9bc5353d54cb73ea2e5a
