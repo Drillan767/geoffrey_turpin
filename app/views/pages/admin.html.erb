@@ -18,12 +18,20 @@
         </tr>
         <tr>
           <td>Compositions en cours</td>
-          <td><%= @stat_devis[:ongoing] %></td>
+          <td>
+            <span class="badge">
+              <%= @stat_devis[:ongoing] %>
+            </span>
+          </td>
           <td><%= link_to 'Voir', devis_status_admin_path(status: 'ongoing') %></td>
         </tr>
         <tr>
           <td>Compositions terminées</td>
-          <td><%= @stat_devis[:done] %></td>
+          <td>
+            <span class="badge">
+              <%= @stat_devis[:done] %>
+            </span>
+          </td>
           <td><%= link_to 'Voir', devis_status_admin_path(status: 'done') %></td>
         </tr>
         </tbody>
