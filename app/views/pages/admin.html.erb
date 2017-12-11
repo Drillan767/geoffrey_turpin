@@ -2,7 +2,7 @@
   <div class="col-md-10 col-md-offset-1">
     <h3 class="guf-title">Administration</h3>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h3>Suivi des devis</h3>
       <table class="table">
         <tbody>
@@ -42,50 +42,87 @@
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h3>Résumé des ratios</h3>
       <% if @ratios %>
-          <table class="table">
-            <tbody>
-            <tr>
-              <td>Facturation à la seconde (de base)</td>
-              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-            </tr>
-            <tr>
-              <td>TVA</td>
-              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-            </tr>
-            <tr>
-              <td>Taux si composition à l'image</td>
-              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-            </tr>
-            <tr>
-              <td>taux si deadline</td>
-              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-            </tr>
-            <tr>
-              <td>Multiplicateur par nouvelle musique</td>
-              <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
-            </tr>
-            <% @ratios.musics_ratios.each do |m| %>
-                <tr>
-                  <td><%= m.music_genre %></td>
-                  <td><%= number_to_currency(m.ratio, unit: '€', format: '%n %u') %></td>
-                </tr>
-            <% end %>
-            </tbody>
-          </table>
-          <div class="text-center">
-            <%= link_to 'Modifier', edit_devis_configurations_path, class: 'form-button' %>
-          </div>
-
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>Facturation à la seconde (de base)</td>
+            <td><%= number_to_currency(@ratios.ratio_facturation, unit: '€', format: '%n %u') %></td>
+          </tr>
+          <tr>
+            <td>TVA</td>
+            <td><%= @ratios.tva %> %</td>
+          </tr>
+          <tr>
+            <td>Taux si composition à l'image</td>
+            <td><%= number_to_currency(@ratios.taux_image, unit: '€', format: '%n %u') %></td>
+          </tr>
+          <tr>
+            <td>taux si deadline</td>
+            <td><%= number_to_currency(@ratios.deadline, unit: '€', format: '%n %u') %></td>
+          </tr>
+          <tr>
+            <td>Multiplicateur par nouvelle musique</td>
+            <td><%= number_to_currency(@ratios.per_new_music, unit: '€', format: '%n %u') %></td>
+          </tr>
+          <% @ratios.musics_ratios.each do |m| %>
+              <tr>
+                <td><b><%= m.music_genre %></b></td>
+                <td><b><%= number_to_currency(m.ratio, unit: '€', format: '%n %u') %></b></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <%= link_to 'Modifier', edit_devis_configurations_path, class: 'form-button' %>
+        </div>
 
       <% else %>
-          <div class="text-center">
-            <h4>Aucun ratio enregistré pour le moment</h4>
-            <%= link_to 'Nouveaux ratios', new_devis_configurations_path, class: 'form-button' %>
-          </div>
+        <div class="text-center">
+          <h4>Aucun ratio enregistré pour le moment</h4>
+          <%= link_to 'Nouveaux ratios', new_devis_configurations_path, class: 'form-button' %>
+        </div>
       <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Simulation</h3>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <% @ratios.musics_ratios.each do |m| %>
+            <% total = 210 * @ratios.ratio_facturation %>
+            <% total *= m.ratio %>
+            <% total = ((total / 100 ) * @ratios.tva ) + total %>
+
+            <% total_deadline = total * @ratios.deadline %>
+            <% total_image = total * @ratios.taux_image %>
+            <% total_both = total_image * @ratios.deadline %>
+
+            <p>Prix estimé pour une musique de <%= m.music_genre %> d'une durée de 3:30 :</p>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Prix</th>
+                    <th>Prix <i class="fa fa-clock-o" aria-hidden="true"></i></th>
+                    <th>Prix <i class="fa fa-picture-o" aria-hidden="true"></i></th>
+                    <th>Prix <i class="fa fa-picture-o" aria-hidden="true"></i> + <i class="fa fa-clock-o" aria-hidden="true"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= number_to_currency(total, unit: '€', format: '%n %u') %></td>
+                    <td><%= number_to_currency(total_deadline, unit: '€', format: '%n %u') %></td>
+                    <td><%= number_to_currency(total_image, unit: '€', format: '%n %u') %></td>
+                    <td><%= number_to_currency(total_both, unit: '€', format: '%n %u') %></td>
+                  </tr>
+                </tbody>
+              </table>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
