@@ -91,6 +91,7 @@
       <h3>Simulation</h3>
       <div class="panel panel-default">
         <div class="panel-body">
+          <% if @ratios %>
           <% @ratios.musics_ratios.each do |m| %>
             <% total = 210 * @ratios.ratio_facturation %>
             <% total *= m.ratio %>
@@ -120,6 +121,11 @@
                   </tr>
                 </tbody>
               </table>
+          <% end %>
+          <% else %>
+            <div class="alert alert-danger">
+              <p>Les ratios n'ont pas encore été définis</p>
+            </div>
           <% end %>
         </div>
       </div>

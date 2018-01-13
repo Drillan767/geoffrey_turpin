@@ -31,7 +31,7 @@ class DevisConfigurationsController < ApplicationController
 
     respond_to do |format|
       if @devis_configuration.save
-        format.html { redirect_to admin_path, notice: 'Devis configuration was successfully created.' }
+        format.html { redirect_to admin_path, notice: 'Taux enregistrés avec succès' }
         format.json { render :show, status: :created, location: admin_path }
       else
         format.html { render :new }

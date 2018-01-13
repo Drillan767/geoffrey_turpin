@@ -1,1 +1,115 @@
-<h1>Bonjour, ceci est un test</h1>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    .pull-right {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>REFERENCE</th>
+          <th>DATE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>DEVIS-SGF-<%= @devi.id%></td>
+          <td><%= @devi.updated_at.strftime('%d-%m-%Y') %></td>
+        </tr>
+        </tbody>
+      </table>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sélection</th>
+          <th>Informations complémentaires</th>
+          <th>Prix horst taxe</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @devi.specs.each do |spec| %>
+          <tr>
+            <td>
+              <%= spec.genre.partition('-').first %> - Durée : <%= spec.minutes %>:<%= spec.secondes %>
+              <% if spec.image %> - Composition à l'image <% end %>
+              <% if @devi.deadline %>avec deadline définie (<%= @devi.deadline.strftime('%d/%m/%Y')%>) <% end %>
+            </td>
+            <td>
+              <%= spec.description %>
+            </td>
+            <td>
+              <% array = JSON::parse(@devi.price) %>
+              <%= number_to_currency(array.first, unit: @devi.currency, format: '%n %u') %>
+            </td>
+            <td>
+              <%= number_to_currency((array.first + array.last), unit: @devi.currency, format: '%n %u') %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <div class="pull-right">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Détail</th>
+          <th>Ratio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Facturation à la seconde (de base)</td>
+          <td><%= number_to_currency(@ratios.ratio_facturation, unit: @devi.currency, format: '%n %u')%></td>
+        </tr>
+        <tr>
+          <td>TVA</td>
+          <td><%= number_to_currency(@ratios.tva, unit: @devi.currency, format: '%n %u')%></td>
+        </tr>
+        <% if @devi.deadline %>
+            <tr>
+              <td>Deadline</td>
+              <td><%= number_to_currency(@ratios.deadline, unit: @devi.currency, format: '%n %u')%></td>
+            </tr>
+        <% end %>
+        <% image = false %>
+        <% @devi.specs.each do |spec| %>
+            <% if spec.image %>
+                <% image = true %>
+            <% end %>
+        <% end %>
+
+        <% if image %>
+            <tr>
+              <td>Composition à l'image</td>
+              <td><%= number_to_currency(@ratios.taux_image, unit: @devi.currency, format: '%n %u')%></td>
+            </tr>
+        <% end %>
+
+        <% if @devi.specs.length > 1 %>
+            <tr>
+              <td>Multiplicateur par nouvelle musique</td>
+              <td><%= number_to_currency(@ratios.per_new_music, unit: @devi.currency, format: '%n %u')%></td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
+
+</body>
+</html>

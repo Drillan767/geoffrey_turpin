@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170910015028) do
     t.string "status"
     t.boolean "email_sent"
     t.datetime "deadline"
-    t.decimal "price", precision: 8, scale: 2
+    t.string "price"
     t.string "currency"
     t.string "session_id"
     t.datetime "created_at", null: false

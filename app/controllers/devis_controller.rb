@@ -1,5 +1,5 @@
 class DevisController < ApplicationController
-  before_action :set_devi, only: %w[:show :edit :update :destroy :envoi_devis :print_devis]
+  before_action :set_devi, only: %i[show edit update destroy envoi_devis print_devis]
 
   def index
     @devis = Devi.all
@@ -9,6 +9,7 @@ class DevisController < ApplicationController
     if cookies[:session_id]
       @titre = 'Devis SGF-' + @devi.id.to_s
       @specs = Spec.find_by(devi_id: @devi.id)
+      @ratios = DevisConfiguration.first
     else
       redirect_to new_devi_path, alert: 'Devis introuvable'
     end
@@ -18,7 +19,7 @@ class DevisController < ApplicationController
     @titre = 'Nouveau devis'
     @devi = Devi.new
     @devi.specs.build
-    @musics = DevisConfiguration.first.musics_ratios.all
+    @musics = DevisConfiguration.first.musics_ratios.all if DevisConfiguration.exists?
   end
 
   def edit
@@ -56,10 +57,6 @@ class DevisController < ApplicationController
   def update
     respond_to do |format|
       if @devi.update(devi_params)
-
-        # a = 'truc-30'
-        #
-        # abort a.partition('-').first
 
         @devi.price = set_price(devi_params)
 
@@ -101,9 +98,11 @@ class DevisController < ApplicationController
     result *= config.deadline unless params[:deadline].blank?
 
     # Ajout de la TVA
-    result = (result / 100) * config.tva.to_i
+    tva = ((result / 100) * config.tva.to_i)
 
-    return result
+    price = [result, tva].to_json
+
+    return price
   end
 
   def envoi_devis
@@ -111,8 +110,8 @@ class DevisController < ApplicationController
        cookies[:session_id] && @devi.status == 'pending'
       @titre = 'Devis envoyé'
       # unless @devi.status == 'created'
-        ContactMailer.new_devis_notification(@devi).deliver
-        @devi.update!(status: 'pending')
+      ContactMailer.new_devis_notification(@devi).deliver
+      @devi.update!(status: 'pending')
       # end
 
     else
@@ -121,6 +120,7 @@ class DevisController < ApplicationController
   end
 
   def print_devis
+    @ratios = DevisConfiguration.first
     respond_to do |format|
       format.html
       format.pdf do

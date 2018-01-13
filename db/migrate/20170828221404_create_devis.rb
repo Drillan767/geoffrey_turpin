@@ -7,7 +7,7 @@ class CreateDevis < ActiveRecord::Migration[5.1]
       t.string :status
       t.boolean :email_sent
       t.datetime :deadline
-      t.decimal :price, :precision => 8, :scale => 2
+      t.string :price
       t.string :currency
       t.string :session_id
 

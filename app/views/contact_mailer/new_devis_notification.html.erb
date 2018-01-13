@@ -3,10 +3,7 @@
   <title>Nouveau devis</title>
   <style>
     a {
-      background-color: #000;
-      color: #fff;
-      padding: 0.5em;
-
+      text-decoration: none;
     }
   </style>
 </head>
@@ -14,7 +11,7 @@
 <h1>Nouveau devis</h1>
 
 <p>
-  <%= devis.prenom %> <%= devis.nom %> <%= mail_to devis.email %> a demandé un devis
+  <%= devis.prenom %> <%= devis.nom %> (<%= mail_to devis.email %>) a demandé un devis
   une composition dont voici les détails : <br />
 </p>
 
@@ -38,6 +35,12 @@
       n'a pas défini de deadline.
   <% end %>
 </p>
+
+<p>Veuillez accéder à l'administration afin de pouvoir voir le projet</p>
+
+<p>Cordialement,</p>
+
+<p>Le Site Web.</p>
 
 
 </body>
