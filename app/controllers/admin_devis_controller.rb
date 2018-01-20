@@ -14,9 +14,6 @@ class AdminDevisController < ApplicationController
     @titre = 'Devis SGF-' + @devis.id.to_s
   end
 
-  def ajax_change
-  end
-
   def change
     @devis = Devi.find(params[:id])
     @devis.update!(status: params[:status])

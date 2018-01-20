@@ -45,7 +45,7 @@
               <%= number_to_currency(array.first, unit: @devi.currency, format: '%n %u') %>
             </td>
             <td>
-              <%= number_to_currency((array.first + array.last), unit: @devi.currency, format: '%n %u') %>
+              <%= number_to_currency((array.first.to_i + array.last.to_i), unit: @devi.currency, format: '%n %u') %>
             </td>
           </tr>
       <% end %>
@@ -67,7 +67,7 @@
         </tr>
         <tr>
           <td>TVA</td>
-          <td><%= number_to_currency(@ratios.tva, unit: @devi.currency, format: '%n %u')%></td>
+          <td><%= number_to_currency(@ratios.tva, unit: '%', format: '%n %u')%></td>
         </tr>
         <% if @devi.deadline %>
         <tr>

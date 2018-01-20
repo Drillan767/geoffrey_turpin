@@ -2,7 +2,6 @@
  *= require @fengyuanchen/datepicker/dist/datepicker.css
  *= require datatables.net-dt/css/jquery.dataTables.css
  *= require font-awesome/css/font-awesome.min.css
- *= require devis
  */
 
 /* Chargement des fonts */
@@ -533,7 +532,7 @@
   }
 
   .form-button {
-    padding: 2.5%;
+    padding: 2rem;
     background-color: #000;
     font-family: "Simplifica", sans-serif;
     font-size: 22px;
