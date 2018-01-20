@@ -1,4 +1,4 @@
-//= require jquery/dist/jquery.min.js
+//= require jquery.min.js
 //= require bootstrap
 //= require cocoon
 //= require @fengyuanchen/datepicker/dist/datepicker.js
