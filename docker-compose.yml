@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 2Gr@v10s+HR6
+      MYSQL_PASSWORD: 2Gr@v10s+HR6
+      MYSQL_DATABASE: geoffrey_turpin
+      MYSQL_USER: geoffrey
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

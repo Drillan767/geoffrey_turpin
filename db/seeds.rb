@@ -1,1 +1,1 @@
-AdminUser.create!(email: 'turpin-geoffrey@live.fr', password: '123456789', password_confirmation: '123456789')
+User.create!(email: 'turpin-geoffrey@live.fr', password: 'P@ssw0rd', password_confirmation: 'P@ssw0rd')
